@@ -1,0 +1,143 @@
+/*
+ * Styles specifically for the Proto front page
+ */
+/* FULL PAGE WIDTH */
+.site-front, .site-front > .site {
+    max-width: 100%;
+}
+.indent {
+    max-width: 1260px;
+    margin: 0 auto;
+}
+
+/* CONTENT AREA */
+.content-area {
+    background: #fff;
+    background: hsl( 0, 0%, 100% );
+}
+
+/* CALL TO ACTION */
+#call-to-action {
+    color: #fff;
+    color: hsl( 0, 0%, 100% );
+    background: #8abf5e;
+    background: hsl( 93, 43%, 56% );
+    padding: 4rem 0;
+}
+#call-to-action h2 {
+    color: #fff;
+    font-size: 32px;
+}
+#call-to-action .entry-content {
+    font-size: 120%;
+}
+
+/* TESTIMONIALS */
+#testimonials {
+    padding: 4rem 0;
+    background: hsl( 0, 0%, 90% );
+}
+
+/* SERVICES */
+#services {
+    padding: 4rem 0;
+}
+#services .entry-header {
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #8abf5e;
+}
+.services-list {
+    margin: 4rem -4rem 0 -2rem;
+    padding: 0;
+    list-style: none;
+}
+.services-list li {
+    display: block;
+    color: #404040;
+    padding: 2rem;
+    margin: 0 4rem 2rem 0;
+    text-decoration: none;
+    -webkit-column-break-inside: avoid;
+                   break-inside: avoid-column;
+}
+.services-list li,
+.services-list li a,
+.services-list li h3 {
+    transition: all .5s ease;
+}
+.services-list li:hover {
+    background: #8abf5e;
+}
+.services-list li:hover,
+.services-list li:hover a,
+.services-list li:hover a:hover,
+.services-list li:hover a h3 {
+    color: hsl( 0, 0%, 100% )!important;
+}
+.services-title {
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-size: 24px;
+    font-size: 2.4rem;
+    line-height: 1em;
+}
+.services-list .more-link {
+    text-decoration: underline;
+}
+
+/* SERVICES RESPONSIVE */
+@media screen and ( min-width: 450px ) {
+    .services-title {
+        margin-bottom: 0;
+        margin-right: 10%;
+        width: 40%;
+        float: left;
+    }
+    .services-lede {
+        width: 50%;
+        float: left;
+    }
+}
+@media screen and ( min-width: 950px ) {
+    .services-list {
+        -webkit-column-count: 2;
+                column-count: 2;
+    }
+}
+
+/* MEET THE OWNER */
+#meet {
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+    color: #fff;
+    color: hsl( 0, 0%, 100% );
+    background: #00497a;
+    background: hsl( 204, 100%, 24% );
+}
+#meet .entry-header {
+    text-align: center;
+}
+#meet .entry-header,
+#meet h2 {
+    color: #fff;
+}
+#meet-content h2 {
+    font-weight: bold;
+    font-size: 24px;
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+}
+
+/* CONTACT */
+#contact {
+    padding: 4rem 0;
+}
+#contact .section-lede {
+    margin-top: 4rem;
+}
+@media screen and ( min-width: 750px ) {
+    #contact .front-right {
+        text-align: right;
+    }
+}

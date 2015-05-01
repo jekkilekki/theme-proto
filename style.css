@@ -1,0 +1,13 @@
+/*
+ * Theme name: Proto
+ * Description: Child Theme of the Gavick Pro Portfolio Theme that includes a Landing Page for the Home, individual client pages, a Social Menu, and better support for the Jetpack Portfolio Post Type
+ * Author: Aaron Snowberger
+ * Version: 0.1
+ * Template: gk-portfolio
+ */
+/* 
+    Created on : 2015. 4. 30, 오후 3:08:53
+    Author     : admin
+*/
+
+@import url('../gk-portfolio/style.css');
