@@ -37,5 +37,13 @@
 			<div id="page" class="hfeed site">
 		
 				<nav id="site-navigation" class="main-navigation <?php if( is_front_page() ) : echo "indent"; endif; ?>" role="navigation">
-					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
+                                    
+					<?php 
+                                        if ( is_front_page() ) {
+                                            /* Custom Home Menu */
+                                            wp_nav_menu( array( 'menu' => 'Front Page Menu' ) );
+                                        } else {
+                                            wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); 
+                                        }
+                                        ?>
 				</nav><!-- #site-navigation -->
