@@ -176,7 +176,5 @@ global $more;
                     
 		</div><!-- #content -->
 	</div><!-- #primary -->
-	
-	<?php comments_template(); ?>
 
 <?php get_footer(); ?>

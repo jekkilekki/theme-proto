@@ -7,8 +7,8 @@
 /* Enqueue GK-Portfolio Style */
 function proto_scripts() {
     if ( is_front_page() ) {
-        wp_enqueue_style( 'proto_styles', get_stylesheet_directory_uri() . '/front-page-style.css' );
-        wp_enqueue_style( 'proto_scripts', get_stylesheet_directory_uri() . '/js/proto-scripts.js', array( 'jquery' ), '20150503' );
+        wp_enqueue_style( 'proto_style', get_stylesheet_directory_uri() . '/protostyle.css' );
+        wp_enqueue_script( 'protoscripts', get_template_directory_uri() . '/js/protoscripts.js', array( 'jquery' ), '20150503', true ); 
     } 
 }
 add_action( 'wp_enqueue_scripts', 'proto_scripts' );

@@ -41,7 +41,7 @@
 					<?php 
                                         if ( is_front_page() ) {
                                             /* Custom Home Menu */
-                                            wp_nav_menu( array( 'menu' => 'Front Page Menu' ) );
+                                            wp_nav_menu( array( 'menu' => 'Front Page Menu', 'menu_class' => 'nav-menu' ) );
                                         } else {
                                             wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); 
                                         }

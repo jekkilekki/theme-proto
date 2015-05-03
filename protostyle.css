@@ -21,6 +21,28 @@
     max-width: 1260px;
     margin: 0 auto;
 }
+.site-front {
+	background-color: #f1f1f1;
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+}
+.site-front #page {
+	margin: 0 auto;
+	max-width: 1260px;
+	overflow: hidden;
+	padding: 60px 0 0;
+	width: 100%;
+}
+.site-front,
+#content > article {
+	position: relative;
+}
+@media (max-width: 1140px) {
+	.site-front #page {
+		padding: 40px 0 0;
+	}
+}
 
 /* CONTENT AREA */
 .content-area {
