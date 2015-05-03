@@ -13,29 +13,73 @@ global $more;
 
 	<div id="primary" class="content-area front-page<?php if (!(have_comments() || comments_open())) : ?> no-comments-area<?php endif; ?>">
 		<div id="content" class="site-content" role="main">
-			
-                    <section id="call-to-action">
+                    
+                     <section id="call-to-action">
                         <div class="indent clear">
-                            
+
                             <?php
                             $query = new WP_Query( 'pagename=call-to-action' );
-                            
+
                             // The Loop
                             if ( $query->have_posts() ) {
                                 while ( $query->have_posts() ) {
                                     $query->the_post();
                                     /* echo '<h2 class="entry-header">' .get_the_title() . '</h2>'; */
+                                    echo '<div class="front-page-left">';
                                     echo '<div class="entry-content">';
                                     the_content();
+                                    echo '</div>';
+                                    echo '</div>';
+                                    echo '<div class="front-page-right">';
+                                    the_post_thumbnail( 'large' );
                                     echo '</div>';
                                 }
                             }
                             // Restore original Post Data
                             wp_reset_postdata();
                             ?>
-                            
+
                         </div><!-- .indent -->
                     </section><!-- #call-to-action -->
+                    
+                    <section id="latest-work">
+                        <div class="indent clear">
+                            
+                            <?php 
+                            $args = array(
+                                'posts_per_page'    => 10,
+                                'orderby'           => 'desc',
+                                'post_type'         => 'jetpack-portfolio'
+                            );
+                            
+                            $query = new WP_Query( $args );
+                            
+                            // The Loop
+                            if ( $query->have_posts() ) {
+                                echo '<ul class="front-page-projects">';
+                                while( $query->have_posts() ) {
+                                    $query->the_post();
+                                    $more = 0;
+                                    echo '<li class="clear">';
+                                    echo '<figure class="testimonial-thumb">';
+                                    the_post_thumbnail( 'testimonial-mug' );
+                                    echo '</figure>';
+                                    echo '<aside class="testimonial-text">';
+                                    echo '<h3 class="testimonial-name">' . get_the_title() . '</h3>';
+                                    echo '<div class="testimonial-excerpt">';
+                                    the_content('');
+                                    echo '</div>';
+                                    echo '</aside>';
+                                    echo '</li>';
+                                }
+                                echo '</ul>';
+                            }
+                            // Restore original Post Data
+                            wp_reset_postdata();
+                            ?>
+                            
+                        </div><!-- .indent -->
+                    </section><!-- #latest-work -->
                     
                     <section id="testimonials">
                         <div class="indent clear">
@@ -111,8 +155,9 @@ global $more;
                                     $services_query->the_post();
                                     $more = 0;
                                     echo '<li class="clear">';
-                                    echo '<a href="' . get_permalink() . '" title="Learn more about ' . get_the_title() . '">';
+                                    echo '<a class="services-link" href="' . get_permalink() . '" title="Learn more about ' . get_the_title() . '">';
                                     echo '<h3 class="services-title">' . get_the_title() . '</h3>';
+                                    the_post_thumbnail( 'thumb' );
                                     echo '</a>';
                                     echo '<div class="services-lede">';
                                     the_content( 'Read more...' );

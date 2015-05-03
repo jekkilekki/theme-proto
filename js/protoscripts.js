@@ -1,19 +1,16 @@
-alert("You made it!");
-
 jQuery( document ).ready( function($) {
-    alert("In jQuery");
    
     /* Stick navigation to the top of the page */
-    var stickyNavTop = $( '.main-navigation' ).offset().top;
+    var stickyNavTop = $( '.site-header' ).offset().top;
     
     $( window ).scroll(function() {
        var scrollTop = $( window ).scrollTop();
        
        if ( scrollTop > stickyNavTop ) {
-           $( '.main-navigation' ).addClass( 'sticky-header' );
+           $( '.site-header' ).addClass( 'sticky-header' );
            $( '.site-header' ).addClass( 'shifted' );
        } else {
-           $( '.main-navigation' ).removeClass( 'sticky-header' );
+           $( '.site-header' ).removeClass( 'sticky-header' );
            $( '.site-header' ).removeClass( 'shifted' );
        }
     });

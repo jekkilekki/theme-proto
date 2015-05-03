@@ -20,8 +20,13 @@
 	<!--[if lte IE 8]>
 	<div id="ie-toolbar"><div><?php _e('You\'re using an unsupported version of Internet Explorer. Please <a href="http://windows.microsoft.com/en-us/internet-explorer/products/ie/home">upgrade your browser</a> for the best user experience on our site. Thank you.', 'portfolio') ?></div></div>
 	<![endif]-->
-		<header id="masthead" class="site-header" role="banner">
-			<a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+		<header id="masthead<?php if ( is_front_page() ) { echo '-front'; } ?>" class="site-header" role="banner">
+                        
+                        <?php if ( is_front_page() ) 
+                        echo '<div class="indent">';
+                        ?>
+                                
+                            <a class="home-link <?php if ( is_front_page() ) { echo 'front-left'; } ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 				<?php if(get_theme_mod('portfolio_logo', '') !== '') : ?>
 					<img src="<?php echo get_theme_mod('portfolio_logo', ''); ?>" alt="<?php bloginfo( 'name' ); ?>" />
 				<?php else: ?>
@@ -30,20 +35,29 @@
 					<h2 class="site-description"><?php bloginfo('description'); ?></h2>
 					<?php endif; ?>
 				<?php endif; ?>
-			</a>
+                            </a>
+                        
+                        <?php if ( is_front_page() ) : ?>
+                            <nav id="site-navigation" class="main-navigation indent front-right" role="navigation">
+
+                                    <!-- Custom Home Menu -->
+                                    <?php wp_nav_menu( array( 'menu' => 'Front Page Menu', 'menu_class' => 'nav-menu' ) ); ?>                                                			
+
+                            </nav><!-- #site-navigation --> 
+                            </div>
+                        <?php endif; ?>
+                            
 		</header><!-- #masthead -->
 				
 		<div id="main" class="<?php if( is_front_page() ) : echo "site-front"; else : echo "site-main"; endif; ?>">
 			<div id="page" class="hfeed site">
 		
-				<nav id="site-navigation" class="main-navigation <?php if( is_front_page() ) : echo "indent"; endif; ?>" role="navigation">
+                            <?php if ( !is_front_page() ) : ?>
+				<nav id="site-navigation" class="main-navigation" role="navigation">
                                     
-					<?php 
-                                        if ( is_front_page() ) {
-                                            /* Custom Home Menu */
-                                            wp_nav_menu( array( 'menu' => 'Front Page Menu', 'menu_class' => 'nav-menu' ) );
-                                        } else {
-                                            wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); 
-                                        }
-                                        ?>
-				</nav><!-- #site-navigation -->
+                                        <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
+                                 
+                                </nav><!-- #site-navigation -->
+                                      
+                            <?php endif; ?>
+

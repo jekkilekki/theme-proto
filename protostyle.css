@@ -2,15 +2,44 @@
  * Styles specifically for the Proto front page
  */
 
-.main-navigation.sticky-header {
+/* MASTHEAD FRONT */
+.indent .home-link {
+    text-align: left;
+    width: 30%!important;
+    float: left;
+}
+#masthead-front.site-header {
+    background: #5cc1a9;
+    color: white;
+}
+#masthead-front a {
+    color: white;
+}
+#masthead-front .main-navigation {
+    float: right;
+    width: 70%;
+    clear: none;
+    padding: 15px 0 0 0;
+}
+#masthead-front .main-navigation ul {
+    float: right;
+}
+
+/* STICKY MENU */
+.site-header.sticky-header {
     position: fixed;
     width: 100%;
     z-index: 100;
     top: 0;
     left: 0;
+    transition: all 1s ease;
+    background-color: white!important;
+}
+.site-header.sticky-header a {
+    color: #777!important;
 }
 .shifted {
-    margin-top: 54px;
+    margin-top: 32px;
 }
 
 /* FULL PAGE WIDTH */
@@ -29,9 +58,7 @@
 }
 .site-front #page {
 	margin: 0 auto;
-	max-width: 1260px;
 	overflow: hidden;
-	padding: 60px 0 0;
 	width: 100%;
 }
 .site-front,
@@ -54,8 +81,8 @@
 #call-to-action {
     color: #fff;
     color: hsl( 0, 0%, 100% );
-    background: #8abf5e;
-    background: hsl( 93, 43%, 56% );
+    background: #5cc1a9;
+    /* background: hsl( 93, 43%, 56% ); */
     padding: 4rem 0;
 }
 #call-to-action h2 {
@@ -152,7 +179,7 @@
 #services .entry-header {
     padding-bottom: 1rem;
     margin-bottom: 2rem;
-    border-bottom: 2px solid #8abf5e;
+    border-bottom: 2px solid #5cc1a9;
 }
 .services-list {
     margin: 4rem -4rem 0 -2rem;
@@ -174,7 +201,7 @@
     transition: all .5s ease;
 }
 .services-list li:hover {
-    background: #8abf5e;
+    background: #5cc1a9;
 }
 .services-list li:hover,
 .services-list li:hover a,
