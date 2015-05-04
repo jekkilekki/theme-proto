@@ -110,10 +110,13 @@ global $more;
                             // The Loop
                             if ( $query->have_posts() ) {
                                 echo '<h2 class="entry-header">Latest Projects</h2>';
-                                echo '<ul class="front-page-projects">';
+                                echo '<div class="front-page-projects">';
+				
                                 while( $query->have_posts() ) {
+                                    
                                     $query->the_post();
-                                    $more = 0;
+                                    get_template_part('content-archive', get_post_format());
+                                    /*$more = 0;
                                     echo '<li class="clear">';
                                     echo '<div class="article-helper not loaded article-hover animated">';
                                     echo '<figure class="project-thumb">';
@@ -126,9 +129,9 @@ global $more;
                                     echo '</div>';
                                     echo '</aside>';
                                     echo '</div>';
-                                    echo '</li>';
+                                    echo '</li>';*/
                                 }
-                                echo '</ul>';
+                                echo '</div>';
                             }
                             // Restore original Post Data
                             wp_reset_postdata();

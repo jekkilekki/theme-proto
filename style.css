@@ -11,3 +11,20 @@
 */
 
 @import url('../gk-portfolio/style.css');
+
+
+/* PAGING NAVIGATION */
+.paging-navigation ul {
+    margin: 0;
+}
+.paging-navigation li { display: inline; }
+a.page-numbers, 
+span.page-numbers {
+    padding: 0.3em 0.7em;
+}
+a:hover.page-numbers {
+    
+}
+.paging-navigation .current {
+    font-weight: bold;
+}
