@@ -42,84 +42,6 @@ global $more;
                         </div><!-- .indent -->
                     </section><!-- #call-to-action -->
                     
-                    <section id="latest-work">
-                        <div class="indent clear">
-                            
-                            <?php 
-                            $args = array(
-                                'posts_per_page'    => 10,
-                                'orderby'           => 'desc',
-                                'post_type'         => 'jetpack-portfolio'
-                            );
-                            
-                            $query = new WP_Query( $args );
-                            
-                            // The Loop
-                            if ( $query->have_posts() ) {
-                                echo '<ul class="front-page-projects">I have posts';
-                                while( $query->have_posts() ) {
-                                    $query->the_post();
-                                    $more = 0;
-                                    echo '<li class="clear">';
-                                    echo '<figure class="project-thumb">';
-                                    the_post_thumbnail( 'gk-portfolio-size' );
-                                    echo '</figure>';
-                                    echo '<aside class="project-text">';
-                                    echo '<h3 class="project-name">' . get_the_title() . '</h3>';
-                                    echo '<div class="project-excerpt">';
-                                    the_excerpt('');
-                                    echo '</div>';
-                                    echo '</aside>';
-                                    echo '</li>';
-                                }
-                                echo '</ul>';
-                            }
-                            // Restore original Post Data
-                            wp_reset_postdata();
-                            ?>
-                            
-                        </div><!-- .indent -->
-                    </section><!-- #latest-work -->
-                    
-                    <section id="testimonials">
-                        <div class="indent clear">
-                            
-                            <?php 
-                            $args = array(
-                                'posts_per_page'    => 3,
-                                'orderby'           => 'rand',
-                                'post_type'         => 'jetpack-testimonial'
-                            );
-                            
-                            $query = new WP_Query( $args );
-                            
-                            //The Loop
-                            if ( $query->have_posts() ) {
-                                echo '<ul class="testimonials">';
-                                while ( $query->have_posts() ) {
-                                    $query->the_post();
-                                    $more = 0;
-                                    echo '<li class="clear">';
-                                    echo '<figure class="testimonial-thumb">';
-                                    the_post_thumbnail( 'testimonial-mug' );
-                                    echo '</figure>';
-                                    echo '<aside class="testimonial-text">';
-                                    echo '<h3 class="testimonial-name">' . get_the_title() . '</h3>';
-                                    echo '<div class="testimonial-excerpt">';
-                                    the_content('');
-                                    echo '</div>';
-                                    echo '</aside>';
-                                    echo '</li>';
-                                }
-                                echo '</ul>';
-                            }
-                            // Restore original Post Data
-                            wp_reset_postdata();
-                            ?>
-                            
-                        </div><!-- .indent -->
-                    </section><!-- #testimonials -->
-                    
                     <section id="services">
                         <div class="indent clear">
                             
@@ -172,6 +94,87 @@ global $more;
                             
                         </div><!-- .indent -->
                     </section><!-- #services -->
+                    
+                    <section id="latest-work">
+                        <div class="indent clear">
+                            
+                            <?php 
+                            $args = array(
+                                'posts_per_page'    => 16,
+                                'orderby'           => 'desc',
+                                'post_type'         => 'jetpack-portfolio'
+                            );
+                            
+                            $query = new WP_Query( $args );
+                            
+                            // The Loop
+                            if ( $query->have_posts() ) {
+                                echo '<h2 class="entry-header">Latest Projects</h2>';
+                                echo '<ul class="front-page-projects">';
+                                while( $query->have_posts() ) {
+                                    $query->the_post();
+                                    $more = 0;
+                                    echo '<li class="clear">';
+                                    echo '<div class="article-helper not loaded article-hover animated">';
+                                    echo '<figure class="project-thumb">';
+                                    the_post_thumbnail( 'gk-portfolio-size' );
+                                    echo '</figure>';
+                                    echo '<aside class="project-text">';
+                                    echo '<h3 class="project-name">' . get_the_title() . '</h3>';
+                                    echo '<div class="project-excerpt">';
+                                    the_excerpt('');
+                                    echo '</div>';
+                                    echo '</aside>';
+                                    echo '</div>';
+                                    echo '</li>';
+                                }
+                                echo '</ul>';
+                            }
+                            // Restore original Post Data
+                            wp_reset_postdata();
+                            ?>
+                            
+                        </div><!-- .indent -->
+                    </section><!-- #latest-work -->
+                    
+                    <section id="testimonials">
+                        <div class="indent clear">
+                            
+                            <?php 
+                            $args = array(
+                                'posts_per_page'    => 12,
+                                'orderby'           => 'rand',
+                                'post_type'         => 'jetpack-testimonial'
+                            );
+                            
+                            $query = new WP_Query( $args );
+                            
+                            //The Loop
+                            if ( $query->have_posts() ) {
+                                echo '<div class="testimonials">';
+                                while ( $query->have_posts() ) {
+                                    $query->the_post();
+                                    $more = 0;
+                                    echo '<div class="clear">';
+                                    echo '<figure class="testimonial-thumb">';
+                                    the_post_thumbnail( 'testimonial-mug' );
+                                    echo '</figure>';
+                                    echo '<aside class="testimonial-text">';
+                                    echo '<h3 class="testimonial-name">' . get_the_title() . '</h3>';
+                                    echo '<div class="testimonial-excerpt">';
+                                    the_content('');
+                                    echo '</div>';
+                                    echo '</aside>';
+                                    echo '</div>';
+                                }
+                                echo '</div>';
+                            }
+                            // Restore original Post Data
+                            wp_reset_postdata();
+                            ?>
+                            
+                        </div><!-- .indent -->
+                    </section><!-- #testimonials -->
                     
                     <section id="about">
                         <div class="indent clear">

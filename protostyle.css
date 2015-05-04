@@ -80,6 +80,16 @@
     background: hsl( 0, 0%, 100% );
 }
 
+/* LATEST PROJECTS */
+.front-page-projects {
+    
+}
+.front-page-projects li {
+    height: 416px;
+    width: 25%;
+    padding: 18px 10px;
+}
+
 /* CALL TO ACTION */
 #call-to-action {
     color: #fff;
@@ -178,6 +188,7 @@
 /* SERVICES */
 #services {
     padding: 4rem 0;
+    background: #e1e1e1;
 }
 #services .entry-header {
     padding-bottom: 1rem;
@@ -193,10 +204,10 @@
     display: block;
     color: #404040;
     padding: 2rem;
-    margin: 0 4rem 2rem 0;
+    margin: 0 4rem 0 0;
     text-decoration: none;
-    -webkit-column-break-inside: avoid;
-                   break-inside: avoid-column;
+    /*-webkit-column-break-inside: avoid;
+                   break-inside: avoid-column;*/
 }
 .services-list li,
 .services-list li a,
@@ -228,18 +239,18 @@
     .services-title {
         margin-bottom: 0;
         margin-right: 10%;
-        width: 40%;
+        /*width: 40%;*/
         float: left;
     }
     .services-lede {
-        width: 50%;
+        /*width: 50%;*/
         float: left;
     }
 }
 @media screen and ( min-width: 950px ) {
     .services-list {
-        -webkit-column-count: 2;
-                column-count: 2;
+        /*-webkit-column-count: 2;
+                column-count: 2;*/
     }
 }
 
