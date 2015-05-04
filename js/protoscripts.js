@@ -8,10 +8,10 @@ jQuery( document ).ready( function($) {
        
        if ( scrollTop > stickyNavTop ) {
            $( '.site-header' ).addClass( 'sticky-header' );
-           $( '.site-header' ).addClass( 'shifted' );
+           $( '.site-front' ).addClass( 'shifted' );
        } else {
            $( '.site-header' ).removeClass( 'sticky-header' );
-           $( '.site-header' ).removeClass( 'shifted' );
+           $( '.site-front' ).removeClass( 'shifted' );
        }
     });
     

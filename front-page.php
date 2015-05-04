@@ -56,18 +56,18 @@ global $more;
                             
                             // The Loop
                             if ( $query->have_posts() ) {
-                                echo '<ul class="front-page-projects">';
+                                echo '<ul class="front-page-projects">I have posts';
                                 while( $query->have_posts() ) {
                                     $query->the_post();
                                     $more = 0;
                                     echo '<li class="clear">';
-                                    echo '<figure class="testimonial-thumb">';
-                                    the_post_thumbnail( 'testimonial-mug' );
+                                    echo '<figure class="project-thumb">';
+                                    the_post_thumbnail( 'gk-portfolio-size' );
                                     echo '</figure>';
-                                    echo '<aside class="testimonial-text">';
-                                    echo '<h3 class="testimonial-name">' . get_the_title() . '</h3>';
-                                    echo '<div class="testimonial-excerpt">';
-                                    the_content('');
+                                    echo '<aside class="project-text">';
+                                    echo '<h3 class="project-name">' . get_the_title() . '</h3>';
+                                    echo '<div class="project-excerpt">';
+                                    the_excerpt('');
                                     echo '</div>';
                                     echo '</aside>';
                                     echo '</li>';
