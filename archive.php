@@ -13,13 +13,17 @@ get_header(); ?>
 		<?php if (have_posts()) : ?>
 			<header class="archive-header">
 				<h1 class="page-title">
-				<?php if (is_day()) : ?>
+				<?php if ( is_day() ) : ?>
 					<?php printf( __( 'Daily Archives: %s', 'portfolio'), '<span>' . get_the_date() . '</span>' ); ?>
-				<?php elseif (is_month()) : ?>
+				<?php elseif ( is_month() ) : ?>
 					<?php printf(__( 'Monthly Archives: %s', 'portfolio'), '<span>' . get_the_date('F Y') . '</span>' ); ?>
 				<?php elseif ( is_year() ) : ?>
 					<?php printf( __( 'Yearly Archives: %s', 'portfolio'), '<span>' . get_the_date('Y') . '</span>' ); ?>
-				<?php else : ?>
+				<?php elseif ( is_tax( 'jetpack-portfolio-type' ) ) : /* ADD: JetPack Portfolio Post Type & Tag support */ ?> 
+                                        <?php printf( __( '%s Projects', 'portfolio' ), '<span>' . single_term_title() . '</span>' ); ?>
+                                <?php elseif ( is_tax( 'jetpack-portfolio-tag' ) ) : ?>
+                                        <?php printf( __( 'Projects: %s', 'portfolio' ), '<span>' . single_term_title() . '</span>' ); ?>
+                                <?php else : ?>
 					<?php _e('Blog Archives', 'portfolio'); ?>
 				<?php endif; ?>
 				</h1>

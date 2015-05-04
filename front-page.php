@@ -115,21 +115,23 @@ global $more;
                                 while( $query->have_posts() ) {
                                     
                                     $query->the_post();
-                                    get_template_part('content-archive', get_post_format());
-                                    /*$more = 0;
+                                    //get_template_part('content-archive', get_post_format());
+                                    $more = 0;
                                     echo '<li class="clear">';
                                     echo '<div class="article-helper not loaded article-hover animated">';
                                     echo '<figure class="project-thumb">';
                                     the_post_thumbnail( 'gk-portfolio-size' );
                                     echo '</figure>';
                                     echo '<aside class="project-text">';
+                                    echo '<a href="' . get_the_permalink() . '">';
                                     echo '<h3 class="project-name">' . get_the_title() . '</h3>';
+                                    echo '</a>';
                                     echo '<div class="project-excerpt">';
                                     the_excerpt('');
                                     echo '</div>';
                                     echo '</aside>';
                                     echo '</div>';
-                                    echo '</li>';*/
+                                    echo '</li>';
                                 }
                                 echo '</div>';
                             }
