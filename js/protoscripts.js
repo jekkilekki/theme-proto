@@ -9,11 +9,11 @@ jQuery( document ).ready( function($) {
        if ( scrollTop > stickyNavTop ) {
            $( '.site-header' ).addClass( 'sticky-header' );
            $( '.site-description' ).addClass( 'sticky-header' );
-           $( '.site-content' ).addClass( 'shifted' );
+           $( '.site-front' ).addClass( 'shifted' );
        } else {
            $( '.site-header' ).removeClass( 'sticky-header' );
            $( '.site-description' ).removeClass( 'sticky-header' );
-           $( '.site-content' ).removeClass( 'shifted' );
+           $( '.site-front' ).removeClass( 'shifted' );
        }
     });
     
