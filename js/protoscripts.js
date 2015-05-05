@@ -8,11 +8,18 @@ jQuery( document ).ready( function($) {
        
        if ( scrollTop > stickyNavTop ) {
            $( '.site-header' ).addClass( 'sticky-header' );
-           $( '.site-front' ).addClass( 'shifted' );
+           $( '.site-description' ).addClass( 'sticky-header' );
+           $( '.site-content' ).addClass( 'shifted' );
        } else {
            $( '.site-header' ).removeClass( 'sticky-header' );
-           $( '.site-front' ).removeClass( 'shifted' );
+           $( '.site-description' ).removeClass( 'sticky-header' );
+           $( '.site-content' ).removeClass( 'shifted' );
        }
+    });
+    
+    $( 'a' ).click(function() {
+       $( 'a.active' ).removeClass( 'active' );
+       $(this).addClass( 'active' );
     });
     
     /* Smooth Scroll from CSS Tricks - specific to front page */
@@ -108,50 +115,6 @@ jQuery( document ).ready( function($) {
 //       responsive: none,
 //       slide: '',
         slidesToShow: 1,
-        slidesToScroll: 1,
-//       speed: 300,
-//       swipe: true,
-//       swipeToSlide: false,
-//       touchMove: true,
-//       touchThreshold: 5,
-//       useCSS: true,
-//       variableWidth: false,
-//       vertical: false,
-//       rtl: false,
-   });
-   
-          /* Slick Slider */
-    $('.services-list').slick({
-       // All the defaults
-//       accessibility: true,
-//       adaptiveHeight: true,
-//         autoplay: true,
-//       autoplaySpeed: 5000,
-        arrows: true,
-//       asNavFor: null,
-//       appendArrows: $(element),
-       prevArrow: '<button type="button" class="slick-prev"><i class="fa fa-left-arrow"></i>Previous</button>',
-       nextArrow: '<button type="button" class="slick-next"><i class="fa fa-right-arrow"></i>Next</button>',
-//       centerMode: true,
-//       centerPadding: '50px',
-        cssEase: 'ease',
-//       customPaging: '',
-//       dots: true,
-//       draggable: true,
-//       fade: false,
-//      focusOnSelect: true,
-//       easing: 'linear',
-//       edgeFriction: 0.15,
-        infinite: true,
-//       initialSlide: 0,
-//       lazyLoad: 'ondemand',
-//       mobileFirst: false,
-//       pauseOnHover: true,
-//       pauseOnDotsHover: false,
-//       respondTo: 'window',
-//       responsive: none,
-//       slide: '',
-        slidesToShow: 4,
         slidesToScroll: 1,
 //       speed: 300,
 //       swipe: true,

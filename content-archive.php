@@ -55,12 +55,16 @@ $post_helper_css_classes .= (get_theme_mod('portfolio_show_excerpts', '1') == '0
 				if ($tag_list) {
 					echo $tag_list;
 				}
-                                /* @ADD: Support for JetPack Portfolio Tags @TODO: Test for the CPT */
+			}
+                        /* @ADD: Support for JetPack Portfolio Tags @TODO: Test for the CPT */
+                                if ( 'jetpack-portfolio' == get_post_type() ) {
+                                    if( get_theme_mod('proto_show_jetpack_tags', '1') == '1' ) {
                                         $project_tag_list = get_the_term_list( $post->ID, 'jetpack-portfolio-tag', '<ul class="tags-links"><li>', ', </li><li>', '</li></ul>' );
                                         if ($project_tag_list) {
                                                 echo $project_tag_list;
                                         }
-			}
+                                    }
+                                }
 		?>
 		<?php else : ?>
 		<div class="entry-content">
@@ -73,10 +77,12 @@ $post_helper_css_classes .= (get_theme_mod('portfolio_show_excerpts', '1') == '0
 					echo $tag_list;
 				}
                                 /* @ADD: Support for JetPack Portfolio Tags @TODO: Test for the CPT */
+                                if ('jetpack-portfolio' == get_post_type() ) {
                                         $project_tag_list = get_the_term_list( $post->ID, 'jetpack-portfolio-tag', '<ul class="tags-links"><li>', ', </li><li>', '</li></ul>' );
                                         if ($project_tag_list) {
                                                 echo $project_tag_list;
                                         }
+                                }
 			?>
 		</div><!-- .entry-content -->
 		<?php endif; ?>

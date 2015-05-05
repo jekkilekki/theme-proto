@@ -8,6 +8,9 @@
     width: 30%!important;
     float: left;
 }
+.front-left .site-description {
+    color: white;
+}
 #masthead-front.site-header {
     background: #5cc1a9;
     color: white;
@@ -61,7 +64,7 @@
     z-index: 100;
     top: 0;
     left: 0;
-    transition: all 1s ease;
+    transition: all 0.7s ease;
     background-color: white!important;
 }
 .admin-bar .site-header.sticky-header {
@@ -70,8 +73,14 @@
 .site-header.sticky-header a {
     color: #777!important;
 }
+.front-left .sticky-header {
+    color: #aaa!important;
+}
 .shifted {
-    
+    margin-top: 154px;
+}
+.active {
+    border: 1px solid #5cc1a9!important;
 }
 
 /* CONTENT AREA */
@@ -206,8 +215,8 @@
     padding: 2rem;
     margin: 0 4rem 0 0;
     text-decoration: none;
-    /*-webkit-column-break-inside: avoid;
-                   break-inside: avoid-column;*/
+    -webkit-column-break-inside: avoid;
+                   break-inside: avoid-column;
 }
 .services-list li,
 .services-list li a,
@@ -239,18 +248,18 @@
     .services-title {
         margin-bottom: 0;
         margin-right: 10%;
-        /*width: 40%;*/
+        width: 40%;
         float: left;
     }
     .services-lede {
-        /*width: 50%;*/
+        width: 50%;
         float: left;
     }
 }
 @media screen and ( min-width: 950px ) {
     .services-list {
-        /*-webkit-column-count: 2;
-                column-count: 2;*/
+        -webkit-column-count: 2;
+                column-count: 2;
     }
 }
 

@@ -20,9 +20,9 @@ get_header(); ?>
 				<?php elseif ( is_year() ) : ?>
 					<?php printf( __( 'Yearly Archives: %s', 'portfolio'), '<span>' . get_the_date('Y') . '</span>' ); ?>
 				<?php elseif ( is_tax( 'jetpack-portfolio-type' ) ) : /* ADD: JetPack Portfolio Post Type & support */ ?> 
-                                        <?php printf( __( '%s Projects', 'portfolio' ), '<span>' . single_term_title() . '</span>' ); ?>
+                                        <?php _e( single_term_title() . ' Projects', 'portfolio' ); ?>
                                 <?php elseif ( is_tax( 'jetpack-portfolio-tag' ) ) : ?>
-                                        <?php printf( __( '%s Projects', 'portfolio' ), '<span>' . single_term_title() . '</span>' ); ?>
+                                        <?php _e( single_term_title( 'Projects tagged: ' ), 'portfolio' ); ?>
                                 <?php else : ?>
 					<?php _e('Blog Archives', 'portfolio'); ?>
 				<?php endif; ?>

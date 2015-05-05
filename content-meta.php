@@ -37,7 +37,7 @@
 					echo '<span class="categories-links">' . __('Posted in ', 'portfolio') . $categories_list . '</span>';
 				}
                                 
-                                if (true) {
+                                if ( 'jetpack-portfolio' == get_post_type() ) {
                                     $project_links_list = get_the_term_list( $post->ID, 'jetpack-portfolio-type', '', ', ', '' );
                                         echo '<span class="categories-links">' . __('Project Type: ', 'portfolio') . $project_links_list . '</span>';
                                 }

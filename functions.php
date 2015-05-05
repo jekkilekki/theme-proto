@@ -7,7 +7,7 @@
 /* Enqueue GK-Portfolio Style */
 function proto_scripts() {
     if ( is_front_page() ) {
-        wp_enqueue_style( 'proto_style', get_stylesheet_directory_uri() . '/protostyle.css' );
+        wp_enqueue_style( 'proto_style', get_stylesheet_directory_uri() . '/css/front-page-style.css' );
         wp_enqueue_script( 'protoscripts', get_stylesheet_directory_uri() . '/js/protoscripts.js', array( 'jquery' ), '20150503', true ); 
         
         /* Slick Carousel */
@@ -15,6 +15,9 @@ function proto_scripts() {
         wp_enqueue_style( 'slick_style', get_stylesheet_directory_uri() . '/inc/slick/slick.css' );
         wp_enqueue_style( 'slick_theme_style', get_stylesheet_directory_uri() . '/inc/slick/slick-theme.css' );
     } 
+    if (is_page_template( 'page-templates/page-collection.php') ) {
+            wp_enqueue_style( 'proto_layout_style', get_stylesheet_directory_uri() . '/css/layout-collection.css' );
+        } 
 }
 add_action( 'wp_enqueue_scripts', 'proto_scripts' );
 
@@ -37,6 +40,40 @@ function proto_exclude_testimonial_posts( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'proto_exclude_testimonial_posts' );
+
+
+/**
+ * Add options to Customizer if JetPack CPTs are enabled
+ */
+/* Add additional options to Theme Customizer */
+function proto_theme_customizer( $wp_customize ) {
+  
+    if ( post_type_exists( 'jetpack-portfolio' ) ) {
+        // Add Sections
+
+        // Add Settings
+	$wp_customize->add_setting(
+	    'proto_show_jetpack_tags',
+	    array(
+	        'default'   => '1',
+	        'capability' => 'edit_theme_options',
+	        'sanitize_callback' => 'portfolio_sanitize_checkbox'
+	    )
+	);
+        
+        // Add Controls
+        $wp_customize->add_control(
+	    'proto_show_jetpack_tags',
+	    array(
+	        'section'  => 'portfolio_layout_options',
+	        'label'    => __('Show tags on Jetpack portfolio', 'proto'),
+	        'type'     => 'checkbox',
+                'priority' => 100
+	    )
+	);
+    }
+}
+add_action( 'customize_register', 'proto_theme_customizer' );
 
 
 /**
