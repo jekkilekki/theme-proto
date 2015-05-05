@@ -2,7 +2,7 @@
 
 /**
  * The custom template for the one-page style front page. Kicks in automatically
- *
+ * @link: http://www.designwall.com/guide/dw-page/ (Good for design ideas)
  */
 
 get_header(); ?>
