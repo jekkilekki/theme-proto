@@ -81,12 +81,14 @@ global $more;
                                     $services_query->the_post();
                                     $more = 0;
                                     echo '<li class="clear">';
+                                    echo '<div class="services-title">';
                                     echo '<a class="services-link" href="' . get_permalink() . '" title="Learn more about ' . get_the_title() . '">';
-                                    echo '<h3 class="services-title">' . get_the_title() . '</h3>';
                                     the_post_thumbnail( 'thumb' );
+                                    echo '<h3>' . get_the_title() . '</h3>';
                                     echo '</a>';
+                                    echo '</div>';
                                     echo '<div class="services-lede">';
-                                    the_content( 'Read more...' );
+                                    the_content( '<button>Read more...</button>' );
                                     echo '</div>';
                                     echo '</li>';
                                 }
@@ -138,6 +140,7 @@ global $more;
                                     echo '</article>';
                                 }
                                 echo '</div>';
+                                echo '<button href="/portfolio">View Full Portfolio &rarr;</button>';
                             }
                             // Restore original Post Data
                             wp_reset_postdata();
@@ -149,29 +152,50 @@ global $more;
                     <section id="testimonials">
                         <div class="indent clear">
                             
+                            <?php
+                            $query = new WP_Query( 'pagename=clients' );
+                            
+                            // The Loop
+                            if ( $query->have_posts() ) {
+                                while ( $query->have_posts() ) {
+                                    $query->the_post();
+                                    $more = 0;      // Set (inside the loop) to display content above the more tag
+                                    echo '<h2 class="entry-header">' . get_the_title() . '</h2>';
+                                    echo '<div class="entry-content">';
+                                    the_content('');
+                                    echo '</div>';
+                                }
+                            }
+                            // Restore original Post Data
+                            wp_reset_postdata();
+                            ?>
+                            
                             <?php 
                             $args = array(
                                 'posts_per_page'    => 12,
                                 'orderby'           => 'rand',
-                                'post_type'         => 'jetpack-testimonial'
+                                'post_type'         => 'jetpack-testimonial',
                             );
                             
                             $query = new WP_Query( $args );
                             
                             //The Loop
                             if ( $query->have_posts() ) {
+                                
                                 echo '<div class="testimonials">';
                                 while ( $query->have_posts() ) {
                                     $query->the_post();
                                     $more = 0;
-                                    echo '<div class="clear">';
+                                    echo '<div class="testimonial clear">';
                                     echo '<figure class="testimonial-thumb">';
                                     the_post_thumbnail( 'testimonial-mug' );
                                     echo '</figure>';
                                     echo '<aside class="testimonial-text">';
-                                    echo '<h3 class="testimonial-name">' . get_the_title() . '</h3>';
                                     echo '<div class="testimonial-excerpt">';
                                     the_content('');
+                                    echo '<a href="' . get_the_permalink() . '">';
+                                    echo '<h3 class="testimonial-name">' . get_the_title() . '</h3>';
+                                    echo '</a>';
                                     echo '</div>';
                                     echo '</aside>';
                                     echo '</div>';
@@ -217,7 +241,7 @@ global $more;
                                     $more = 0;
                                     echo '<li class="clear">';
                                     echo '<a class="clients-link" href="' . get_permalink() . '" title="See all Projects for ' . get_the_title() . '">';
-                                    the_post_thumbnail( 'gk-portfolio-size' );
+                                    the_post_thumbnail( 'gk-portfolio-size', array( 'class' => 'desaturate' ) );
                                     echo '<h3 class="clients-title">' . get_the_title() . '</h3>';
                                     echo '</a>';
                                     echo '</li>';
@@ -242,7 +266,10 @@ global $more;
                                 while ( $query->have_posts() ) {
                                     $query->the_post();
                                     echo '<h2 class="entry-header">' . get_the_title(). '</h2>';
-                                    echo '<div class="entry-content">';
+                                    echo '<figure class="front-right">';
+                                    the_post_thumbnail( 'large' );
+                                    echo '</figure>';
+                                    echo '<div class="entry-content front-left">';
                                     the_content();
                                     echo '</div>';
                                 }
@@ -253,6 +280,54 @@ global $more;
                             
                         </div><!-- .indent -->
                     </section><!-- #about -->
+                    
+                    <section id="blog">
+                        <div class="indent clear">
+                            
+                            <?php
+                            $args = array(
+                                'posts_per_page'    => 4,
+                                'orderby'           => 'desc',
+                                'post_type'         => 'post',
+                            );
+                            
+                            $query = new WP_Query( $args );
+                            
+                            // The Loop
+                            if ( $query->have_posts() ) {
+                                echo '<h2 class="entry-header">Latest Articles</h2>';
+                                echo '<div class="front-page-blog">';
+				
+                                while( $query->have_posts() ) {
+                                    
+                                    $query->the_post();
+                                    //get_template_part('content-archive', get_post_format());
+                                    $more = 0;
+                                    echo '<article class="clear">';
+                                    echo '<div class="article-helper not loaded article-hover animated">';
+                                    echo '<figure class="project-thumb">';
+                                    the_post_thumbnail( 'gk-portfolio-size' );
+                                    echo '</figure>';
+                                    echo '<aside class="project-text">';
+                                    echo '<a href="' . get_the_permalink() . '">';
+                                    echo '<h3 class="project-name">' . get_the_title() . '</h3>';
+                                    echo '</a>';
+                                    echo '<div class="project-excerpt">';
+                                    the_excerpt('');
+                                    echo '</div>';
+                                    echo '</aside>';
+                                    echo '</div>';
+                                    echo '</article>';
+                                }
+                                echo '</div>';
+                                echo '<button href="/portfolio">See More Articles &rarr;</button>';
+                            }
+                            // Restore original Post Data
+                            wp_reset_postdata();
+                            ?>
+                            
+                        </div>
+                    </section>
                     
                     <section id="contact">
                         <div class="indent clear">
