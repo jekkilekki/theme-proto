@@ -14,33 +14,40 @@ global $more;
 	<div id="primary" class="content-area front-page<?php if (!(have_comments() || comments_open())) : ?> no-comments-area<?php endif; ?>">
 		<div id="content" class="site-content" role="main">
                     
-                     <section id="call-to-action">
-                        <div class="indent clear">
+                     <!--<section id="home">
+                        <div class="indent clear">-->
 
                             <?php
-                            $query = new WP_Query( 'pagename=call-to-action' );
+                            $query = new WP_Query( 'pagename=home' );
 
                             // The Loop
                             if ( $query->have_posts() ) {
                                 while ( $query->have_posts() ) {
                                     $query->the_post();
-                                    /* echo '<h2 class="entry-header">' .get_the_title() . '</h2>'; */
-                                    echo '<div class="front-page-left">';
+                                    
+                                    $url_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "full" );
+                                    if ( !empty( $url_image ) ) {
+                                        echo "<section id='home' style='background:url($url_image[0]) repeat fixed; background-size: cover;'>";
+                                    } else {
+                                        echo "<section id='home'>";
+                                    }
+                                    echo '<div class="indent clear">';
+                                    
                                     echo '<div class="entry-content">';
                                     the_content();
                                     echo '</div>';
-                                    echo '</div>';
-                                    echo '<div class="front-page-right">';
-                                    the_post_thumbnail( 'large' );
-                                    echo '</div>';
+                                    
+                                    echo '</div><!-- .indent -->';
+                                    echo '</section><!-- #home -->';
+                                    
                                 }
                             }
                             // Restore original Post Data
                             wp_reset_postdata();
                             ?>
 
-                        </div><!-- .indent -->
-                    </section><!-- #call-to-action -->
+                        <!--</div><!-- .indent -->
+                    <!--</section><!-- #home -->
                     
                     <section id="services">
                         <div class="indent clear">

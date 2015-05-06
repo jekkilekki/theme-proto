@@ -1,7 +1,7 @@
 jQuery( document ).ready( function($) {
    
     /* Stick navigation to the top of the page */
-    var stickyNavTop = $( '.site-header' ).offset().top;
+    var stickyNavTop = $( 'body' ).offset().top;
     
     $( window ).scroll(function() {
        var scrollTop = $( window ).scrollTop();
@@ -9,11 +9,11 @@ jQuery( document ).ready( function($) {
        if ( scrollTop > stickyNavTop ) {
            $( '.site-header' ).addClass( 'sticky-header' );
            $( '.site-description' ).addClass( 'sticky-header' );
-           $( '.site-front' ).addClass( 'shifted' );
+           $( '.site-header' ).addClass( 'shifted' );
        } else {
            $( '.site-header' ).removeClass( 'sticky-header' );
            $( '.site-description' ).removeClass( 'sticky-header' );
-           $( '.site-front' ).removeClass( 'shifted' );
+           $( '.site-header' ).removeClass( 'shifted' );
        }
     });
     
@@ -31,7 +31,12 @@ jQuery( document ).ready( function($) {
                 target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
                 if (target.length) {
                     $('html,body').animate({
-                        scrollTop: target.offset().top
+                        scrollTop: target.offset().top-70
+                    }, 1000);
+                    return false;
+                } else {
+                    $('html,body').animate({
+                        scrollTop: 0
                     }, 1000);
                     return false;
                 }

@@ -13,7 +13,11 @@
 }
 #masthead-front.site-header {
     background: #5cc1a9;
+    background: transparent;
     color: white;
+    position: fixed;
+    z-index: 200;
+    width: 100%;
 }
 #masthead-front a {
     color: white;
@@ -64,7 +68,7 @@
     z-index: 100;
     top: 0;
     left: 0;
-    transition: all 0.7s ease;
+    transition: all 1s ease;
     background-color: white!important;
 }
 .admin-bar .site-header.sticky-header {
@@ -77,7 +81,7 @@
     color: #aaa!important;
 }
 .shifted {
-    margin-top: 154px;
+    /* margin-top: 64px; */
 }
 .active {
     border: 1px solid #5cc1a9!important;
@@ -99,19 +103,35 @@
     padding: 18px 10px;
 }
 
-/* CALL TO ACTION */
-#call-to-action {
+/* HOME (FORMERLY CALL TO ACTION) */
+#home {
     color: #fff;
     color: hsl( 0, 0%, 100% );
     background: #5cc1a9;
     /* background: hsl( 93, 43%, 56% ); */
-    padding: 4rem 0;
+    padding: 10rem 0 4rem;
 }
-#call-to-action h2 {
+#home hgroup {
+    width: 700px;
+    margin: 0 auto 8rem;
+    padding: 3rem;
+    border: 3px solid white; 
+}
+#home h1, #home h2 {
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+#home button {
+    display: block;
+    margin: 0 auto;
+}
+#home h2 {
     color: #fff;
-    font-size: 32px;
+    /* font-size: 32px; */
 }
-#call-to-action .entry-content {
+#home .entry-content {
     font-size: 120%;
 }
 

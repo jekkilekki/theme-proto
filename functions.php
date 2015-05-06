@@ -26,6 +26,20 @@ add_action( 'wp_enqueue_scripts', 'proto_scripts' );
 add_image_size( 'testimonial-mug', 253, 253, true );
 
 
+/**
+ * WordPress Function to change Background to Featured Image
+ * @link: http://geekoutwith.me/2011/09/wordpress-function-to-change-background-to-featured-image/
+ */
+function proto_set_post_background() {
+    global $post;
+    $bgimage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "full" );
+    
+    if ( !empty( $bgimage ) ) {
+        return '<style type="text/css">#home { background-image: url(' . $bgimage[0]. '); } </style>';
+    }
+}
+
+
 /* Add JetPack Testimonial Excerpts */
 function proto_add_testimonial_excerpts() {
     add_post_type_support( 'jetpack-testimonial', 'excerpt' );
