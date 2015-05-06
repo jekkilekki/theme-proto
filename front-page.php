@@ -76,7 +76,7 @@ global $more;
                             
                             // The Loop
                             if ( $services_query->have_posts() ) {
-                                echo '<ul class="services-list">';
+                                echo '<ul class="entry-content services-list">';
                                 while ( $services_query->have_posts() ) {
                                     $services_query->the_post();
                                     $more = 0;
@@ -121,7 +121,7 @@ global $more;
                                     $query->the_post();
                                     //get_template_part('content-archive', get_post_format());
                                     $more = 0;
-                                    echo '<li class="clear">';
+                                    echo '<article class="clear">';
                                     echo '<div class="article-helper not loaded article-hover animated">';
                                     echo '<figure class="project-thumb">';
                                     the_post_thumbnail( 'gk-portfolio-size' );
@@ -135,7 +135,7 @@ global $more;
                                     echo '</div>';
                                     echo '</aside>';
                                     echo '</div>';
-                                    echo '</li>';
+                                    echo '</article>';
                                 }
                                 echo '</div>';
                             }
@@ -185,7 +185,7 @@ global $more;
                             <?php
                             $query = new WP_Query( 'pagename=clients' );
                             $clients_id = $query->queried_object->ID;
-                            
+                            /*
                             // The Loop
                             if ( $query->have_posts() ) {
                                 while ( $query->have_posts() ) {
@@ -199,7 +199,7 @@ global $more;
                             }
                             // Restore original Post Data
                             wp_reset_postdata();
-                            
+                            */
                             // Get the children of the clients page
                             $args = array(
                                 'post_type'     => 'page',
@@ -217,8 +217,8 @@ global $more;
                                     $more = 0;
                                     echo '<li class="clear">';
                                     echo '<a class="clients-link" href="' . get_permalink() . '" title="See all Projects for ' . get_the_title() . '">';
-                                    echo '<h3 class="services-title">' . get_the_title() . '</h3>';
-                                    the_post_thumbnail( 'portfolio' );
+                                    the_post_thumbnail( 'gk-portfolio-size' );
+                                    echo '<h3 class="clients-title">' . get_the_title() . '</h3>';
                                     echo '</a>';
                                     echo '</li>';
                                 }

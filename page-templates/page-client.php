@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Portfolio Collection Page
+ * Template Name: Client Page
  *
  */
 

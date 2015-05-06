@@ -22,6 +22,9 @@
 #masthead-front a {
     color: white;
 }
+#masthead-front .nav-menu a:hover {
+    border: 1px solid #5cc1a9;
+}
 #masthead-front .main-navigation {
     float: right;
     width: 70%;
@@ -215,11 +218,11 @@
 }
 
 /* SERVICES */
-#services {
+#services, #clients {
     padding: 4rem 0;
     background: #e1e1e1;
 }
-#services .entry-header {
+#services .entry-header, #clients .entry-header {
     padding-bottom: 1rem;
     margin-bottom: 2rem;
     border-bottom: 2px solid #5cc1a9;
@@ -254,7 +257,7 @@
 }
 .services-title {
     margin-bottom: 1rem;
-    font-weight: bold;
+    /* font-weight: bold; */
     font-size: 24px;
     font-size: 2.4rem;
     line-height: 1em;
@@ -281,6 +284,23 @@
         -webkit-column-count: 2;
                 column-count: 2;
     }
+}
+
+/* CLIENTS */
+.clients-list {
+    list-style: none;
+    padding: 0;
+}
+.clients-list li {
+    display: inline-block;
+    margin: 1rem;
+    width: 15%;
+}
+.clients-title {
+    margin: 0;
+    font-size: 100%;
+    font-weight: normal;
+    text-align: center;
 }
 
 /* ABOUT */
