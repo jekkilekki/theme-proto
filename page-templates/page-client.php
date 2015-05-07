@@ -6,7 +6,7 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area<?php if (!(have_comments() || comments_open())) : ?> no-comments-area<?php endif; ?>">
+	<div id="primary-left" class="content-area<?php if (!(have_comments() || comments_open())) : ?> no-comments-area<?php endif; ?>">
 		<div id="content" class="site-content" role="main">
 			<?php while ( have_posts() ) : the_post(); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -36,7 +36,36 @@ get_header(); ?>
 			<?php endwhile; ?>
 		</div><!-- #content -->
 	</div><!-- #primary -->
+        
+        <div class="primary-right">
+            <?php 
+            $client = get_post_meta( $post->ID, 'client', true );
+            echo $client;
+            $args = array (
+                'order_by'  => 'desc',
+                'tax_query' => array(
+                    'taxonomy'  => 'jetpack-portfolio-tag',
+                    'field'     => 'slug',
+                    'terms'     => $client,
+                    )
+            );
+            
+            $query = new WP_Query( $args );
+            
+            // The Loop
+            if ( $query->have_posts() ) {
+                while ( $query->have_posts() ) {
+                    echo "in the loop";
+                    $query->the_post();
+                    get_template_part( 'content-archive', get_post_format() );
+                }
+            }
+            // Restore original Post Data
+            wp_reset_postdata();
+            ?>
+            
+        </div>
 	
-	<?php comments_template(); ?>
+	<?php /*comments_template();*/ ?>
 
 <?php get_footer(); ?>

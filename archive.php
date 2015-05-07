@@ -23,8 +23,10 @@ get_header(); ?>
                                         <?php _e( single_term_title() . ' Projects', 'portfolio' ); ?>
                                 <?php elseif ( is_tax( 'jetpack-portfolio-tag' ) ) : ?>
                                         <?php _e( single_term_title( 'Projects tagged: ' ), 'portfolio' ); ?>
+                                <?php elseif ( is_post_type_archive( 'jetpack-portfolio' ) ) : ?>
+                                        <?php _e( 'Projects', 'proto' ); ?>
                                 <?php else : ?>
-					<?php _e('Blog Archives', 'portfolio'); ?>
+					<?php _e( 'Blog Archives', 'portfolio'); ?>
 				<?php endif; ?>
 				</h1>
 			</header>

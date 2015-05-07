@@ -1,4 +1,9 @@
-#primary {
-    margin-left: -300px;
+#primary-left {
+    width: 300px;
+    float: left;
+}
+#primary-right {
+    width: 700px;
+    float: right;
 }
 
