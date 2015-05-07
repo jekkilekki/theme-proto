@@ -93,6 +93,7 @@ global $more;
                                     echo '</li>';
                                 }
                                 echo '</ul>';
+                                echo '<button>View all Services &rarr;</button>';
                             }
                             // Restore original Post Data
                             wp_reset_postdata();
@@ -231,6 +232,7 @@ global $more;
                                     echo '</li>';
                                 }
                                 echo '</ul>';
+                                echo '<button>View full list of Clients &rarr;</button>';
                             }
                             // Restore original Post Data
                             wp_reset_postdata();
@@ -249,12 +251,13 @@ global $more;
                             if ( $query->have_posts() ) {
                                 while ( $query->have_posts() ) {
                                     $query->the_post();
+                                    $more = 0;
                                     echo '<h2 class="entry-header">' . get_the_title(). '</h2>';
                                     echo '<figure class="front-right">';
                                     the_post_thumbnail( 'large' );
                                     echo '</figure>';
                                     echo '<div class="entry-content front-left">';
-                                    the_content();
+                                    the_content('<button>Read more &rarr;</button>');
                                     echo '</div>';
                                 }
                             }
