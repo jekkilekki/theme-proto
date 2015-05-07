@@ -80,7 +80,7 @@ global $more;
                                 while ( $services_query->have_posts() ) {
                                     $services_query->the_post();
                                     $more = 0;
-                                    echo '<li class="clear">';
+                                    echo '<li class="service clear">';
                                     echo '<div class="services-title">';
                                     echo '<a class="services-link" href="' . get_permalink() . '" title="Learn more about ' . get_the_title() . '">';
                                     the_post_thumbnail( 'thumb' );
@@ -120,24 +120,8 @@ global $more;
 				
                                 while( $query->have_posts() ) {
                                     
-                                    $query->the_post();
-                                    //get_template_part('content-archive', get_post_format());
-                                    $more = 0;
-                                    echo '<article class="clear">';
-                                    echo '<div class="article-helper not loaded article-hover animated">';
-                                    echo '<figure class="project-thumb">';
-                                    the_post_thumbnail( 'gk-portfolio-size' );
-                                    echo '</figure>';
-                                    echo '<aside class="project-text">';
-                                    echo '<a href="' . get_the_permalink() . '">';
-                                    echo '<h3 class="project-name">' . get_the_title() . '</h3>';
-                                    echo '</a>';
-                                    echo '<div class="project-excerpt">';
-                                    the_excerpt('');
-                                    echo '</div>';
-                                    echo '</aside>';
-                                    echo '</div>';
-                                    echo '</article>';
+                                    $query->the_post();                           
+                                    get_template_part( 'content-archive', get_post_format() );
                                 }
                                 echo '</div>';
                                 echo '<button href="/portfolio">View Full Portfolio &rarr;</button>';
@@ -182,7 +166,7 @@ global $more;
                             //The Loop
                             if ( $query->have_posts() ) {
                                 
-                                echo '<div class="testimonials">';
+                                echo '<div class="testimonials entry-content">';
                                 while ( $query->have_posts() ) {
                                     $query->the_post();
                                     $more = 0;
@@ -235,7 +219,7 @@ global $more;
                             
                             // The Loop
                             if ( $clients_query->have_posts() ) {
-                                echo '<ul class="clients-list">';
+                                echo '<ul class="clients-list entry-content">';
                                 while ( $clients_query->have_posts() ) {
                                     $clients_query->the_post();
                                     $more = 0;
@@ -286,7 +270,7 @@ global $more;
                             
                             <?php
                             $args = array(
-                                'posts_per_page'    => 4,
+                                'posts_per_page'    => 8,
                                 'orderby'           => 'desc',
                                 'post_type'         => 'post',
                             );
@@ -301,32 +285,17 @@ global $more;
                                 while( $query->have_posts() ) {
                                     
                                     $query->the_post();
-                                    //get_template_part('content-archive', get_post_format());
-                                    $more = 0;
-                                    echo '<article class="clear">';
-                                    echo '<div class="article-helper not loaded article-hover animated">';
-                                    echo '<figure class="project-thumb">';
-                                    the_post_thumbnail( 'gk-portfolio-size' );
-                                    echo '</figure>';
-                                    echo '<aside class="project-text">';
-                                    echo '<a href="' . get_the_permalink() . '">';
-                                    echo '<h3 class="project-name">' . get_the_title() . '</h3>';
-                                    echo '</a>';
-                                    echo '<div class="project-excerpt">';
-                                    the_excerpt('');
-                                    echo '</div>';
-                                    echo '</aside>';
-                                    echo '</div>';
-                                    echo '</article>';
+                                    get_template_part( 'content-archive', get_post_format() );
+
                                 }
                                 echo '</div>';
-                                echo '<button href="/portfolio">See More Articles &rarr;</button>';
                             }
                             // Restore original Post Data
                             wp_reset_postdata();
                             ?>
                             
                         </div>
+                        <button href="/portfolio">See More Articles &rarr;</button>
                     </section>
                     
                     <section id="contact">
