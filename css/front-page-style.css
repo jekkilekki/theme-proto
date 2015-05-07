@@ -167,7 +167,7 @@
  * 2.2 SERVICES ================================================================
  */
 #services, #clients {
-    padding: 4rem 0;
+    padding: 4rem 0 6rem;
     /* background: #e1e1e1; */
 }
 #services .entry-header, #clients .entry-header {
@@ -190,7 +190,14 @@
     /*margin: 0 4rem 0 0;*/
     text-decoration: none;
     /*-webkit-column-break-inside: avoid;
-                   break-inside: avoid-column;*/
+              page-break-inside: avoid;
+                   break-inside: avoid;*/
+    width: 31.3333333333%;
+    float: left;
+    box-sizing: border-box;
+    margin: 0 1%;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .services-list li,
 .services-list li a,
@@ -234,10 +241,10 @@
     }
 }
 @media screen and ( min-width: 950px ) {
-    .services-list {
+    /*.services-list {
         -webkit-column-count: 3;
                 column-count: 3;
-    }
+    }*/
 }
 
 /* 
@@ -314,7 +321,7 @@
     transition: all .5s ease-out;
     padding: 2rem;
     margin: 18px 10px;
-    height: 275px;      /* @TODO: Fix the height of testimonials and services */
+    /*height: 275px;      /* @TODO: Fix the height of testimonials and services */
 }
 .testimonials li {
     /*padding: 2rem 0 3rem;
