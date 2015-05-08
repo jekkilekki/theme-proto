@@ -17,7 +17,7 @@ function proto_scripts() {
     } 
     if (is_page_template( 'page-templates/page-client.php') ) {
             wp_enqueue_style( 'proto_layout_style', get_stylesheet_directory_uri() . '/css/layout-client.css' );
-        } 
+    } 
 }
 add_action( 'wp_enqueue_scripts', 'proto_scripts' );
 

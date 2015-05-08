@@ -31,12 +31,13 @@ $post_helper_css_classes = '';
 $post_helper_css_classes .= get_theme_mod('portfolio_frontpage_animation_type', '1') !== ''  ? $animation_type : '';
 $post_helper_css_classes .= get_theme_mod('portfolio_frontpage_animation_speed', '500') !== ''  ? $animation_speed : '';
 $post_helper_css_classes .= (get_theme_mod('portfolio_show_excerpts', '1') == '0' && is_sticky()) ? ' sticky' : '';
+$post_helper_css_classes .= ( is_sticky() && is_front_page() ? ' sticky' : '' );
 
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class($post_css_classes); ?> data-cols="<?php echo get_theme_mod('portfolio_article_column', '4')?>">
 	<div class="article-helper notloaded<?php echo $post_helper_css_classes; ?>">
-		<?php if (is_home() || is_search() || is_archive() || is_tag()) : // Only display Excerpts for Search ?>
+		<?php if (is_front_page() || is_home() || is_search() || is_archive() || is_tag() || is_page_template('page-templates/page-client.php')) : // Only display Excerpts for Search ?>
 			<?php if(get_theme_mod('portfolio_show_excerpts', '1') == '1') : ?>
 			<div class="post-preview transition">
 				<?php get_template_part('content', 'header'); ?>

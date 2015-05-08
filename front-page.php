@@ -88,7 +88,7 @@ global $more;
                                     echo '</a>';
                                     echo '</div>';
                                     echo '<div class="services-lede">';
-                                    the_content( '<button>Read more...</button>' );
+                                    the_content( 'Read More &rarr;' );
                                     echo '</div>';
                                     echo '</li>';
                                 }
@@ -157,7 +157,7 @@ global $more;
                             
                             <?php 
                             $args = array(
-                                'posts_per_page'    => 12,
+                                'posts_per_page'    => 8,
                                 'orderby'           => 'rand',
                                 'post_type'         => 'jetpack-testimonial',
                             );
@@ -172,8 +172,10 @@ global $more;
                                     $query->the_post();
                                     $more = 0;
                                     echo '<div class="testimonial clear">';
-                                    echo '<figure class="testimonial-thumb">';
-                                    the_post_thumbnail( 'testimonial-mug' );
+                                    echo '<figure class="testimonial-thumb <!--losange-->">';
+                                    //echo '<div class="los1">';
+                                    the_post_thumbnail( 'thumbnail' );
+                                    //echo '</div>';
                                     echo '</figure>';
                                     echo '<aside class="testimonial-text">';
                                     echo '<div class="testimonial-excerpt">';
@@ -226,7 +228,7 @@ global $more;
                                     $more = 0;
                                     echo '<li class="clear">';
                                     echo '<a class="clients-link" href="' . get_permalink() . '" title="See all Projects for ' . get_the_title() . '">';
-                                    the_post_thumbnail( 'gk-portfolio-size', array( 'class' => 'desaturate' ) );
+                                    the_post_thumbnail( 'thumbnail', array( 'class' => 'desaturate' ) );
                                     echo '<h3 class="clients-title">' . get_the_title() . '</h3>';
                                     echo '</a>';
                                     echo '</li>';
@@ -257,7 +259,7 @@ global $more;
                                     the_post_thumbnail( 'large' );
                                     echo '</figure>';
                                     echo '<div class="entry-content front-left">';
-                                    the_content('<button>Read more &rarr;</button>');
+                                    the_content('Read more &rarr;');
                                     echo '</div>';
                                 }
                             }
@@ -272,9 +274,13 @@ global $more;
                         <div class="indent clear">
                             
                             <?php
+                            $sticky = get_option( 'sticky_posts' );
+                            $sticky_num = count($sticky);
+                            $pages_to_retrieve = 8 - $sticky_num;
+                            
                             $args = array(
-                                'posts_per_page'    => 8,
-                                'orderby'           => 'desc',
+                                'posts_per_page'    => $pages_to_retrieve,
+                                'orderby'           => 'rand',
                                 'post_type'         => 'post',
                             );
                             

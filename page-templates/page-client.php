@@ -7,7 +7,7 @@ global $more;
 
 get_header(); ?>
 
-	<div id="primary-left" class="content-area<?php if (!(have_comments() || comments_open())) : ?> no-comments-area<?php endif; ?>">
+	<div id="primary-right" class="content-area<?php if (!(have_comments() || comments_open())) : ?> no-comments-area<?php endif; ?>">
 		<div id="content" class="site-content" role="main">
 			<?php while ( have_posts() ) : the_post(); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -39,33 +39,45 @@ get_header(); ?>
 	</div><!-- #primary -->
         
         
-        <div id="primary-right" class="content-area">
+        <div id="primary-left" class="content-area">
 		<div id="content" class="site-content archive" role="main">
                     
                         <?php
                         // Figure out how to get JUST the Testimonial(s) related to THIS particular Client
-                        $testimonial = get_post_meta( $post->ID, 'proto_project', true );
-                        
+                        $testimonial = get_the_title();
+
                         $args = array (
                             'post_type'     => 'jetpack-testimonial',
-                            array(
-                                'meta_key'  => 'proto_testimonial',
-                                'meta_value'=> $testimonial,
-                            )
+                            'meta_key'  => 'proto_testimonial',
+                            'meta_value'=> $testimonial,
                         );
                         
                         $query = new WP_Query( $args );
                         
                         // The Loop (load the Testimonial with a Custom Field tag for this particular Jetpack-Portfolio-Tag)
                         if ( $query->have_posts() ) {
-                            while ( $query->have_posts() ) {
-                                $query->the_post();
-                                $more = 0;
-                                
-                                echo '<div class="entry-content">';
-                                echo '<h2 class="entry-title">' . get_the_title() . '</h2>';
+                            echo '<div id="client-testimonial-container">';
+                            echo '<div id="client-testimonial" class="entry-content">';
+                                while ( $query->have_posts() ) {
+                                    $query->the_post();
+                                    /*$more = 0;*/
+                                    
+                                    echo '<div class="testimonial clear">';
+                                    echo '<figure class="testimonial-thumb">';
+                                    the_post_thumbnail( 'thumbnail' );
+                                    echo '</figure>';
+                                    echo '<aside class="testimonial-text">';
+                                    echo '<div class="testimonial-excerpt">';
+                                    the_content('');
+                                    echo '</div>';
+                                    echo '<a href="' . get_the_permalink() . '">';
+                                    echo '<h3 class="testimonial-name">' . get_the_title() . '</h3>';
+                                    echo '</a>';
+                                    echo '</aside>';
+                                    echo '</div>';
+                                }
                                 echo '</div>';
-                            }
+                                echo '</div>';
                         }
                         // Restore original Post Data
                         wp_reset_postdata();
