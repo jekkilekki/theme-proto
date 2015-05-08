@@ -3,6 +3,7 @@
  * Template Name: Client Page
  *
  */
+global $more;
 
 get_header(); ?>
 
@@ -41,18 +42,34 @@ get_header(); ?>
         <div id="primary-right" class="content-area">
 		<div id="content" class="site-content archive" role="main">
                     
-                        <?php/*
+                        <?php
+                        // Figure out how to get JUST the Testimonial(s) related to THIS particular Client
+                        $testimonial = get_post_meta( $post->ID, 'proto_project', true );
+                        
+                        $args = array (
+                            'post_type'     => 'jetpack-testimonial',
+                            array(
+                                'meta_key'  => 'proto_testimonial',
+                                'meta_value'=> $testimonial,
+                            )
+                        );
+                        
                         $query = new WP_Query( $args );
                         
                         // The Loop (load the Testimonial with a Custom Field tag for this particular Jetpack-Portfolio-Tag)
                         if ( $query->have_posts() ) {
                             while ( $query->have_posts() ) {
                                 $query->the_post();
+                                $more = 0;
+                                
+                                echo '<div class="entry-content">';
+                                echo '<h2 class="entry-title">' . get_the_title() . '</h2>';
+                                echo '</div>';
                             }
                         }
                         // Restore original Post Data
                         wp_reset_postdata();
-                        */
+                        
                         
                         
                         $client = get_post_meta( $post->ID, 'proto_client', true );
