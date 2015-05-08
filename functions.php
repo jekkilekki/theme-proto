@@ -25,6 +25,12 @@ add_action( 'wp_enqueue_scripts', 'proto_scripts' );
 /* Add Testimonial Image size */
 add_image_size( 'testimonial-mug', 253, 253, true );
 
+/* Add Theme support for Custom Fields in Jetpack Testimonials */
+function proto_testimonial_custom_fields() {
+    add_post_type_support( 'jetpack-testimonial', 'custom-fields' );
+}
+add_action( 'init', 'proto_testimonial_custom_fields' );
+
 
 /**
  * WordPress Function to change Background to Featured Image

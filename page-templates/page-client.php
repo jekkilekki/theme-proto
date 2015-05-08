@@ -37,34 +37,56 @@ get_header(); ?>
 		</div><!-- #content -->
 	</div><!-- #primary -->
         
-        <div class="primary-right">
-            <?php 
-            $client = get_post_meta( $post->ID, 'client', true );
-            echo $client;
-            $args = array (
-                'order_by'  => 'desc',
-                'tax_query' => array(
-                    'taxonomy'  => 'jetpack-portfolio-tag',
-                    'field'     => 'slug',
-                    'terms'     => $client,
-                    )
-            );
-            
-            $query = new WP_Query( $args );
-            
-            // The Loop
-            if ( $query->have_posts() ) {
-                while ( $query->have_posts() ) {
-                    echo "in the loop";
-                    $query->the_post();
-                    get_template_part( 'content-archive', get_post_format() );
-                }
-            }
-            // Restore original Post Data
-            wp_reset_postdata();
-            ?>
-            
-        </div>
+        
+        <div id="primary-right" class="content-area">
+		<div id="content" class="site-content archive" role="main">
+                    
+                        <?php/*
+                        $query = new WP_Query( $args );
+                        
+                        // The Loop (load the Testimonial with a Custom Field tag for this particular Jetpack-Portfolio-Tag)
+                        if ( $query->have_posts() ) {
+                            while ( $query->have_posts() ) {
+                                $query->the_post();
+                            }
+                        }
+                        // Restore original Post Data
+                        wp_reset_postdata();
+                        */
+                        
+                        
+                        $client = get_post_meta( $post->ID, 'proto_client', true );
+                        
+                        $args = array (
+                            'order_by'  => 'desc',
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy'  => 'jetpack-portfolio-tag',
+                                    'field'     => 'slug',
+                                    'terms'     => $client,
+                                    )
+                                ),
+                        );
+
+                        $query = new WP_Query( $args );
+
+                        // The Loop (load Projects tagged with the specific Jetpack-Portfolio-Tag specified in the Custom Fields for this Page)
+                        if ( $query->have_posts() ) {
+                            while ( $query->have_posts() ) {
+                                $query->the_post();
+                                get_template_part( 'content-archive', get_post_format() );
+                            }
+                        } else {
+                            get_template_part( 'content', 'none' );
+                        }
+                        // Restore original Post Data
+                        wp_reset_postdata();
+                        ?>
+			
+		</div><!-- #content -->
+		
+		<?php portfolio_paging_nav(); ?>
+	</div><!-- #primary -->
 	
 	<?php /*comments_template();*/ ?>
 
