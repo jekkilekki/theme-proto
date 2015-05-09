@@ -152,6 +152,7 @@ figure.front-right {
     text-transform: uppercase;
     text-decoration: none;
     border: 1px solid #5cc1a9;
+    bottom: 15px;
 }
 .site-front .more-link:hover {
     border-color: #363636;

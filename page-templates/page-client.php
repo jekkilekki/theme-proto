@@ -76,6 +76,8 @@ get_header(); ?>
                         
                         echo '</div>';
                         
+                        //get_template_part( 'jetpack', 'testimonial' );
+                        // @TODO Write this as a function that will run anywhere - currently only works on singular() pages
                         
                         // Figure out how to get JUST the Testimonial(s) related to THIS particular Client
                         $testimonial = get_the_title();
@@ -91,10 +93,10 @@ get_header(); ?>
                         // The Loop (load the Testimonial with a Custom Field tag for this particular Jetpack-Portfolio-Tag)
                         if ( $query->have_posts() ) {
                             echo '<div id="client-testimonial-container" class="clear">';
-                            echo '<div id="client-testimonial" class="entry-content">';
+                            echo '<div id="client-testimonial" class="entry-content client-page">';
                                 while ( $query->have_posts() ) {
                                     $query->the_post();
-                                    /*$more = 0;*/
+                                    //$more = 0;
                                     
                                     echo '<div class="testimonial clear">';
                                     echo '<figure class="testimonial-thumb">';
@@ -102,7 +104,14 @@ get_header(); ?>
                                     echo '</figure>';
                                     echo '<aside class="testimonial-text">';
                                     echo '<div class="testimonial-excerpt">';
-                                    the_content('Read all &rarr;');
+                                    
+                                    if ( $post->post_excerpt ) {
+                                        the_excerpt();
+                                        echo '<a class="more-link" href="' . get_permalink() . '">Read More &rarr;</a>';
+                                    } else {
+                                        the_content();
+                                    }
+                                    //the_content('Read all &rarr;');
                                     echo '</div>';
                                     echo '<a href="' . get_the_permalink() . '">';
                                     echo '<h3 class="testimonial-name">' . get_the_title() . '</h3>';

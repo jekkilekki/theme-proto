@@ -179,7 +179,14 @@ global $more;
                                     echo '</figure>';
                                     echo '<aside class="testimonial-text">';
                                     echo '<div class="testimonial-excerpt">';
-                                    the_content('');
+                                    
+                                    if ( $post->post_excerpt ) {
+                                        the_excerpt();
+                                        echo '<a class="more-link" href="' . get_permalink() . '">Read More &rarr;</a>';
+                                    } else {
+                                        the_content();
+                                    }
+                                    
                                     echo '<a href="' . get_the_permalink() . '">';
                                     echo '<h3 class="testimonial-name">' . get_the_title() . '</h3>';
                                     echo '</a>';
