@@ -129,16 +129,6 @@
 #contact {
     padding: 4rem 0 6rem;
 }
-#home button,
-#services button,
-#latest-work button, 
-#testimonials button,
-#about button,
-#blog button,
-#contact button {
-    display: block;
-    margin: 4rem auto 0;
-}
 figure.front-right {
     float: right;
     margin-left: 2rem;
@@ -159,6 +149,16 @@ figure.front-right {
 }
 .site-front .more-link:hover a {
     color: #363636;
+}
+.buttons {
+    margin: 0 auto;
+}
+.button {
+    padding: 12px 40px 10px;
+    margin: 0 auto;
+    max-width: 300px;
+    display: block;
+    text-align: center;
 }
 
 /* 
@@ -217,17 +217,20 @@ figure.front-right {
 #services, #clients {
     /* background: #e1e1e1; */
 }
+#services .indent {
+    margin-bottom: 4rem;
+}
 #services .entry-header, #clients .entry-header {
     padding-bottom: 1rem;
     margin-bottom: 2rem;
     border-bottom: 2px solid #5cc1a9;
 }
-.service button {
+/*.service button {
     margin-top: 0;
 }
 .service button a {
     text-decoration: none;
-}
+}*/
 .services-list {
     margin: 4rem -4rem 0 -2rem;
     padding: 0;
@@ -275,6 +278,26 @@ figure.front-right {
     font-size: 24px;
     font-size: 2.4rem;
     line-height: 1em;
+}
+
+.losange, .losange div {
+  margin: 0 auto;
+  transform-origin: 50% 50%;
+  overflow: hidden;
+  width: 250px;
+  height: 250px;
+}
+.losange {
+  transform: rotate(45deg) translateY(10px);
+}
+.losange .los1 {
+  width: 355px;
+  height: 355px;
+  transform: rotate(-45deg) translateY(-74px);
+}
+.losange .los1 img {
+  width: 100%;
+  height: auto;
 }
 
 /* 
@@ -334,6 +357,9 @@ figure.front-right {
  */
 #testimonials {
     /* background: hsl( 0, 0%, 90% ); */
+}
+#testimonials .indent {
+    margin-bottom: 4rem;
 }
 #testimonials figure {
     min-height: 200px;
@@ -421,6 +447,9 @@ figure.front-right {
 .testimonial-excerpt p {
     font-size: 14px;
 }
+.site-front .testimonial-excerpt .more-link {
+    bottom: 15px;
+}
 
 /*
  * 2.4.1.1 TESTIMONIALS RESPONSIVE ---------------------------------------------
@@ -479,10 +508,10 @@ figure.front-right {
     filter: grayscale( 100% );
     filter: gray;
     filter: url( "data:image/svg+xml; utf8, <svg version=\'1.1\' xmlns=\'http://www.w3.org/2000/svg\' height=\'0\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\' /></filter></svg>#grayscale");
-    -webkit-transition: all .5s ease;
-    -moz-transition: all .5s ease;
-    -ms-transition: all .5s ease;
-    transition: all .5s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    transition: all .3s ease;
     max-height: 200px;
     opacity: 0.75;
 }
@@ -519,36 +548,16 @@ figure.front-right {
 }
 #about .more-link {
     display: block;
-    margin: 4rem auto;
-    width: 180px;
+    margin: 4rem auto -2.75rem;
+    max-width: 300px;
+    text-align: center;
 }
+
 /* 
  * 2.6 BLOG ====================================================================
  */
-#blog {
-
-}
-#blog button {
-    /*margin: 4rem auto 0;*/
-}
-.losange, .losange div {
-  margin: 0 auto;
-  transform-origin: 50% 50%;
-  overflow: hidden;
-  width: 250px;
-  height: 250px;
-}
-.losange {
-  transform: rotate(45deg) translateY(10px);
-}
-.losange .los1 {
-  width: 355px;
-  height: 355px;
-  transform: rotate(-45deg) translateY(-74px);
-}
-.losange .los1 img {
-  width: 100%;
-  height: auto;
+#blog .indent {
+    margin-bottom: 4rem;
 }
 
 /* 
@@ -589,12 +598,28 @@ figure.front-right {
 #testimonials .slick-dots {
     bottom: -65px!important;
 }
+.slick-prev,
+.slick-next,
 .slick-prev:before,
 .slick-next:before {
     background: silver;
     border-radius: 20px;
     width: 30px;
     height: 30px;
+    padding: 5px;
+    border: 1px solid transparent;
+}
+.slick-prev:hover,
+.slick-next:hover,
+.slick-prev:before:hover,
+.slick-next:before:hover {
+    background: transparent;
+    border-radius: 20px;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border-color: silver;
+    color: silver;
 }
 .slick-prev {
     left: -35px;

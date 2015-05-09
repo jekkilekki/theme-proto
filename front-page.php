@@ -93,13 +93,16 @@ global $more;
                                     echo '</li>';
                                 }
                                 echo '</ul>';
-                                echo '<button>View all Services &rarr;</button>';
+                                
                             }
                             // Restore original Post Data
                             wp_reset_postdata();
                             ?>
                             
                         </div><!-- .indent -->
+                        <div class="indent buttons">
+                            <a class="button more-link" role="button" href="/services/">See all Services &rarr;</a>
+                        </div>
                     </section><!-- #services -->
                     
                     <section id="latest-work">
@@ -125,13 +128,15 @@ global $more;
                                     get_template_part( 'content-archive', get_post_format() );
                                 }
                                 echo '</div>';
-                                echo '<button href="/portfolio">View Full Portfolio &rarr;</button>';
+                                
                             }
                             // Restore original Post Data
                             wp_reset_postdata();
                             ?>
                             
                         </div><!-- .indent -->
+                        
+                        <a class="button more-link" role="button" href="/portfolio/">View Full Portfolio &rarr;</a>
                     </section><!-- #latest-work -->
                     
                     <section id="testimonials">
@@ -241,13 +246,15 @@ global $more;
                                     echo '</li>';
                                 }
                                 echo '</ul>';
-                                echo '<button>View full list of Clients &rarr;</button>';
+                                
                             }
                             // Restore original Post Data
                             wp_reset_postdata();
                             ?>
                             
                         </div><!-- .indent -->
+                        
+                        <a class="button more-link" role="button" href="/clients/">View full list of Clients &rarr;</a>
                     </section><!-- #testimonials -->
                     
                     <section id="about">
@@ -311,7 +318,8 @@ global $more;
                             ?>
                             
                         </div>
-                        <button href="/portfolio">See More Articles &rarr;</button>
+                        
+                        <a class="button more-link" role="button" href="/blog/">See More Articles &rarr;</a>
                     </section>
                     
                     <section id="contact">
