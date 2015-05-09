@@ -20,8 +20,31 @@
 #primary-left .site-content.archive article {
     width: 33.33333333%;
 }
+.page-title-pre {
+    color: #aaa;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: block;
+}
+.testimonial-excerpt .more-link {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 5px 35px 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid #5cc1a9;
+    position: absolute;
+    right: 0;
+    bottom: 30px;
+}
+.testimonial-excerpt .more-link:hover {
+    border-color: #363636;
+    color: #363636;
+}
 #client-testimonial-container {
     margin: 18px auto;
+    clear: both;
 }
 #client-testimonial {
     margin: 0 10px;
@@ -31,6 +54,7 @@
     -moz-box-shadow: 0 0 13px rgba(0, 0, 0, .07);
     -ms-box-shadow: 0 0 13px rgba(0, 0, 0, .07);
     box-shadow: 0 0 13px rgba(0, 0, 0, .07);
+    position: relative;
 }
 .testimonial-thumb {
     max-width: 20%;
