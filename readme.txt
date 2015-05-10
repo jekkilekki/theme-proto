@@ -8,3 +8,4 @@ FRONT-PAGE
 8: TEST CASES: Create a multitude of test cases to make sure everything works
 9: CROSS BROWSER TESTING: Check it in multiple browsers
 10: RESPONSIVE CODE: Make sure it downgrades nicely
+11: TESTIMONIALS + HOME: Possibly try to get the homepage broken down into separate function calls for the different bits of content
