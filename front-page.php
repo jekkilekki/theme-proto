@@ -100,9 +100,8 @@ global $more;
                             ?>
                             
                         </div><!-- .indent -->
-                        <div class="indent buttons">
-                            <a class="button more-link" role="button" href="/services/">See all Services &rarr;</a>
-                        </div>
+                        
+                        <a class="button more-link" role="button" href="/services/">See all Services &rarr;</a>
                     </section><!-- #services -->
                     
                     <section id="latest-work">

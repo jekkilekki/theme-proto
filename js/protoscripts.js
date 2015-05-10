@@ -33,7 +33,7 @@ jQuery( document ).ready( function($) {
                 target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
                 if (target.length) {
                     $('html,body').animate({
-                        scrollTop: target.offset().top-70
+                        scrollTop: target.offset().top-65
                     }, 1000);
                     return false;
                 } else {
@@ -45,6 +45,38 @@ jQuery( document ).ready( function($) {
             }
         });
     });
+    
+    /* Turn on active state on the correct link when scrolling */
+    /* @link:  http://codetheory.in/change-active-state-links-sticky-navigation-scroll/ */
+    var sections = $( 'section' ),
+        nav = $( 'nav' ),
+        nav_height = nav.outerHeight();
+        
+    $(window).on( 'scroll', function() {
+       var cur_pos = $(this).scrollTop();
+       
+       sections.each(function() {
+          var top = $(this).offset().top  - nav_height -15,
+              bottom = top + $(this).outerHeight();
+              
+          if ( cur_pos >= top && cur_pos <= bottom ) {
+              nav.find( 'a' ).removeClass( 'active' );
+              sections.removeClass( 'active' );
+              
+              //$(this).addClass( 'active' );
+              nav.find( 'a[href="#' + $(this).attr('id') + '"]').addClass( 'active' );
+          }
+       });
+    });
+    
+//    nav.find( 'a' ).on( 'click', function() {
+//       var $el = $(this),
+//           id = $el.attr( 'href' );
+//           
+//       $( 'html, body' ).animate({
+//           scrollTop: $(id).offset().top - nav_height
+//       }, 500 );
+//    });
     
     /* Slick Slider */
     $('.front-page-projects').slick({
