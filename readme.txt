@@ -9,3 +9,6 @@ FRONT-PAGE
 9: CROSS BROWSER TESTING: Check it in multiple browsers
 10: RESPONSIVE CODE: Make sure it downgrades nicely
 11: TESTIMONIALS + HOME: Possibly try to get the homepage broken down into separate function calls for the different bits of content
+12: README: Create a good readme
+13: INSTRUCTIONS: Prepare a good set of instructions + screenshots to show HOW to make it work
+14: SUBMIT: Submit to the WP.org directory

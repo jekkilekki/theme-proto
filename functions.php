@@ -22,6 +22,18 @@ function proto_scripts() {
 add_action( 'wp_enqueue_scripts', 'proto_scripts' );
 
 
+/**
+ * Setup Proto's textdomain
+ * 
+ * Declare textdomain for this Child theme.
+ * Translations can be filed in the /languages/ directory.
+ */
+function proto_setup() {
+    load_child_theme_textdomain( 'proto', get_stylesheet_directory() . '/languages' );
+}
+add_action( 'after_setup_theme', 'proto_setup' );
+
+
 /* Add Testimonial Image size */
 add_image_size( 'testimonial-mug', 253, 253, true );
 
