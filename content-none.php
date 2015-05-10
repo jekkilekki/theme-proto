@@ -19,9 +19,13 @@
 	<?php get_search_form(); ?>
         
         <?php elseif (is_page_template( 'page-templates/page-client.php' ) ) : ?>
-       
-        <p><?php printf(__('To get Projects to show up on this Client Page, you need to declare a <code>proto_client</code> Custom Field value.<br><a href="%1$s">Do so here</a> or <a href="%2$s">learn how to here.</a>', 'proto' ), admin_url( 'post-new.php'), admin_url( 'post-new.php')); ?></p>
-        <p><?php printf(__('To get Testimonials to show up on this Client Page, you need to declare a <code>proto_testimonial</code> Custom Field value.<br><a href="%1$s">Do so here</a> or <a href="%2$s">learn how to here.</a>', 'proto' ), admin_url( 'post-new.php'), admin_url( 'post-new.php')); ?></p>
+        
+        <p><?php _e( 'To get Projects to show up on this Client Page, you need to declare a <code>proto_client</code> Custom Field value.<br>', 'proto' ); 
+                printf(__('%1$s or <a href="%2$s">learn how to here.</a>', 'proto' ), edit_post_link(__('Do so here', 'portfolio') ), admin_url( 'post-new.php')); ?>
+        </p>
+        <p><?php _e( 'To get Testimonials to show up on this Client Page, you need to declare a <code>proto_testimonial</code> Custom Field value.<br>', 'proto' ); 
+                printf(__('%1$s or <a href="%2$s">learn how to here.</a>', 'proto' ), edit_post_link(__('Do so here', 'portfolio') ), admin_url( 'post-new.php')); ?>
+        </p>
 
 	<?php else : ?>
 

@@ -19,7 +19,7 @@ get_header(); ?>
 	<?php endif; ?>
         
         <?php if(get_post_type() == 'jetpack-portfolio' ) : ?>
-                <?php get_template_part( 'jetpack', 'testimonial' ); ?>
+                <?php get_template_part( 'content', 'testimonial' ); ?>
         <?php endif; ?>
 	
 	<?php get_template_part( 'content', 'footer' ); ?>

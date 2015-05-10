@@ -133,6 +133,7 @@ figure.front-right {
     float: right;
     margin-left: 2rem;
     margin-bottom: 2rem;
+    padding-right: 72px;
 }
 .site-front .more-link {
     font-family: Arial, sans-serif;
