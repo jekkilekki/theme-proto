@@ -126,7 +126,8 @@
 #testimonials, 
 #about, 
 #blog, 
-#contact {
+#contact,
+#warnings {
     padding: 4rem 0 6rem;
 }
 figure.front-right {
@@ -591,6 +592,24 @@ figure.front-right {
     #contact .front-right {
         text-align: right;
     }
+}
+
+/* 
+ * 2.8 WARNINGS ================================================================
+ */
+#warnings {
+    color: #fff;
+    color: hsl( 0, 0%, 100% );
+    background-color: #404040;
+    /*background: #00497a;
+    background: hsl( 204, 100%, 24% );*/
+}
+#warnings .entry-header {
+    margin-bottom: 4rem;
+}
+#warnings .entry-header,
+#warnings h2 {
+    color: #fff;
 }
 
 /* 

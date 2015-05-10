@@ -9,7 +9,7 @@
 </header>
 
 <div class="page-content">
-	<?php if (is_home() && current_user_can('publish_posts')) : ?>
+	<?php if ( ( is_front_page() || is_home() ) && current_user_can('publish_posts')) : ?>
 
 	<p><?php printf(__('Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'portfolio' ), admin_url( 'post-new.php')); ?></p>
 
