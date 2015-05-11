@@ -539,7 +539,12 @@ figure.front-right {
     margin-bottom: 4rem;
 }
 #about .entry-header,
-#about h2 {
+#about h1,
+#about h2,
+#about h3,
+#about h4,
+#about h5,
+#about h6 {
     color: #fff;
 }
 #about-content h2 {
@@ -607,9 +612,20 @@ figure.front-right {
 #warnings .entry-header {
     margin-bottom: 4rem;
 }
+#warnings .entry-content {
+    padding-top: 0;
+}
 #warnings .entry-header,
-#warnings h2 {
+#warnings h1,
+#warnings h2,
+#warnings h3,
+#warnings h4,
+#warnings h5,
+#warnings h6 {
     color: #fff;
+}
+#warnings a:hover {
+    color: #e1e1e1;
 }
 
 /* 

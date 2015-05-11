@@ -87,8 +87,8 @@ function proto_theme_customizer( $wp_customize ) {
 	$wp_customize->add_setting(
 	    'proto_show_jetpack_tags',
 	    array(
-	        'default'   => '1',
-	        'capability' => 'edit_theme_options',
+	        'default'           => '1',
+	        'capability'        => 'edit_theme_options',
 	        'sanitize_callback' => 'portfolio_sanitize_checkbox'
 	    )
 	);
@@ -104,6 +104,29 @@ function proto_theme_customizer( $wp_customize ) {
 	    )
 	);
     }
+    
+    /*
+     *  Front Page Setup Notifications
+     */
+    // Add Settings
+    $wp_customize->add_setting(
+            'proto_show_front_page_notifications',
+            array(
+                'default'           => '1',
+                'capability'        => 'edit_theme_options',
+                'sanitize_callback' => 'portfolio_sanitize_checkbox'
+            )
+    );
+    // Add Controls
+    $wp_customize->add_control(
+            'proto_show_front_page_notifications',
+            array(
+                'section'   => 'static_front_page',
+                'label'     => __('Show Front Page setup notifications', 'proto'),
+                'type'      => 'checkbox',
+                'priority'  => 100
+            )
+    );
 }
 add_action( 'customize_register', 'proto_theme_customizer' );
 

@@ -7,6 +7,12 @@
  * @TODO: Add CONDITIONAL statements to test for the existence of each of the pages - OR add dummy content to tell people to fill those in
  */
 
+if ( get_theme_mod( 'proto_show_front_page_notifications', '1' ) == '0' ) { ?>
+    <style>
+        #warnings { display: none; }
+    </style>
+<?php }
+
 get_header(); ?>
 
 <?php
@@ -201,62 +207,31 @@ $incomplete_section_ids = array();
          * CLIENTS + TESTIMONIALS SECTION ======================================
          * /////////////////////////////////////////////////////////////////////
          */        
-                    $client_page = new WP_Query( 'pagename=clients' );
-                    $clients_id = $client_page->queried_object->ID;
+                    
+                /**
+                 * FIRST LOOP : Gets Clients page title + content
+                 */
+                $query = new WP_Query( 'pagename=clients' );
 
-                    // Get the children of the clients page
-                    $args = array(
-                        'post_type'     => 'page',
-                        'post_parent'   => $clients_id,
-                        'posts_per_page'=> 6,
-                        'order_by'      => 'rand'
-                    );
-                    $client_pages = new WP_Query( $args );
-                    
-                    $args = array(
-                        'posts_per_page'    => 8,
-                        'orderby'           => 'rand',
-                        'post_type'         => 'jetpack-testimonial',
-                    );
-
-                    $testimonial_pages = new WP_Query( $args );
-                    
-                    if ( $client_page->have_posts() || $client_pages->have_posts() || $testimonial_pages->have_posts() ) :
-                    
-                    // @TODO: Fix this above section that should check if there is anything - on my site, there should be NOTHING
+                // The Loop
+                if ( $query->have_posts() ) : 
+                /**
+                 * BEGIN CLIENTS SECTION =======================================
+                 */
                     ?>
-                        
                     <section id="testimonials">
                     <div class="indent clear">
-                        
+
                     <?php
-                    /**
-                     * FIRST LOOP : Gets Clients page title + content
-                     */
-                    $query = new WP_Query( 'pagename=clients' );
-
-                    // The Loop
-                    if ( $query->have_posts() ) { ?>
-
-                        <?php
-                        while ( $query->have_posts() ) {
-                            $query->the_post();
-                            $more = 0;      // Set (inside the loop) to display content above the more tag
-                            echo '<h2 class="entry-header">' . get_the_title() . '</h2>';
-                            echo '<div class="entry-content">';
-                            the_content('');
-                            echo '</div>';
-                        }
-                    } else {
-                        
-                        $incomplete_sections++;
-                        $incomplete_section_ids[] = '<a href="#">Page: Clients</a>';
+                    while ( $query->have_posts() ) {
+                        $query->the_post();
+                        $more = 0;      // Set (inside the loop) to display content above the more tag
+                        echo '<h2 class="entry-header">' . get_the_title() . '</h2>';
+                        echo '<div class="entry-content">';
+                        the_content('');
+                        echo '</div>';
                     }
-                    // Restore original Post Data
-                    wp_reset_postdata();
-                    ?>
-                      
-                    <?php
+                
                     /*
                      * SECOND LOOP : Gets (up to) 8 individual testimonials
                      */
@@ -353,10 +328,20 @@ $incomplete_section_ids = array();
                     <a class="button more-link" role="button" href="/clients/">View full list of Clients &rarr;</a>
                     </section><!-- #testimonials -->
                     
-                    <?php endif; ?>
+                <?php else : ?>
                     
+                <?php
+                    $incomplete_sections++;
+                    $incomplete_section_ids[] = '<a href="#">Page: Clients</a>';
+                ?>
+                
+                <?php endif; ?>
                     
-                    <?php
+                <?php
+                // Restore original Post Data
+                wp_reset_postdata();
+
+                
         /**
          * /////////////////////////////////////////////////////////////////////
          * ABOUT SECTION =======================================================
@@ -455,7 +440,7 @@ $incomplete_section_ids = array();
                     <?php
         /**
          * /////////////////////////////////////////////////////////////////////
-         * BLOG SECTION ========================================================
+         * CONTACT SECTION =====================================================
          * /////////////////////////////////////////////////////////////////////
          */                
                     $query = new WP_Query( 'pagename=contact' );
@@ -500,7 +485,8 @@ $incomplete_section_ids = array();
                         
                         echo '<h2 class="entry-header">Notifications</h2>';
                         echo '<div class="entry-content">';
-                        echo "<p>You have <strong>$incomplete_sections incomplete Front Page sections</strong>. Click any of the links to <u>learn how to complete that section</u> OR <a href='#'>turn off notifications in the Theme Customizer</a>:";
+                        echo "<h4>You have $incomplete_sections incomplete Front Page sections.</h4>";
+                        echo '<p>Click any of the links to <u>learn how to complete that section</u> OR <a href="#">turn off notifications in the Theme Customizer</a>:';
                         echo '<ol>';
                         foreach( $incomplete_section_ids as $incomplete_section_id ) {
                             echo "<li>$incomplete_section_id</li>";
