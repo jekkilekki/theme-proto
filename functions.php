@@ -28,20 +28,29 @@ add_action( 'wp_enqueue_scripts', 'proto_scripts' );
  * Declare textdomain for this Child theme.
  * Translations can be filed in the /languages/ directory.
  */
-function proto_setup() {
+function proto_textdomain() {
     load_child_theme_textdomain( 'proto', get_stylesheet_directory() . '/languages' );
 }
-add_action( 'after_setup_theme', 'proto_setup' );
+add_action( 'after_setup_theme', 'proto_textdomain' );
 
 
-/* Add Testimonial Image size */
-add_image_size( 'testimonial-mug', 253, 253, true );
-
-/* Add Theme support for Custom Fields in Jetpack Testimonials */
-function proto_testimonial_custom_fields() {
+function proto_setup() {
+    /* Add Theme support for Custom Fields in Jetpack Testimonials */
     add_post_type_support( 'jetpack-testimonial', 'custom-fields' );
+    
+    /* Add Testimonial Image size */
+    add_image_size( 'testimonial-mug', 253, 253, true );
+    
+    /* Add Theme support for Jetpack Infinite Scroll */
+    add_theme_support( 'infinite-scroll', array(
+        'type'              => 'click',
+        'footer_widgets'    => false,
+        'container'         => 'entry-content',
+        'wrapper'           => true,
+        'posts_per_page'    => 12
+    ) );
 }
-add_action( 'init', 'proto_testimonial_custom_fields' );
+add_action( 'init', 'proto_setup' );
 
 
 /**

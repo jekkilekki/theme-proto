@@ -8,6 +8,9 @@
 .site-front, .site-front > .site {
     max-width: 100%;
 }
+.site-front .sharedaddy {
+    display: none;
+}
 .indent {
     max-width: 1260px;
     margin: 0 auto;
@@ -122,7 +125,7 @@
 }
 #home, 
 #services, 
-#latest-work, 
+#latest-projects, 
 #testimonials, 
 #about, 
 #blog, 
@@ -328,15 +331,15 @@ figure.front-right {
 /* 
  * 2.3 LATEST PROJECTS =========================================================
  */
-#latest-work, #blog {
+#latest-projects, #blog {
     margin: 0;
     background: #e1e1e1;
 }
-#latest-work .entry-header,
+#latest-projects .entry-header,
 #blog .entry-header {
     margin-bottom: 4rem;
 }
-#latest-work button {
+#latest-projects button {
     display: block;
     margin: 0 auto;
 }
