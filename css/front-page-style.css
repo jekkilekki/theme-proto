@@ -9,7 +9,7 @@
     max-width: 100%;
 }
 .site-front .sharedaddy {
-    display: none;
+	display: none;
 }
 .indent {
     max-width: 1260px;
@@ -66,7 +66,15 @@
     color: white;
 }
 #masthead-front .nav-menu a:hover {
-    border: 1px solid #5cc1a9;
+    border: 1px solid white;
+}
+#masthead-front .nav-menu li li a {
+	color: #aaa;
+}
+#masthead-front .nav-manu li li a:hover {
+	margin-left: -20px;
+	margin-right: -20px;
+	border: 1px solid #5cc1a9!important;
 }
 #masthead-front .main-navigation {
     float: right;
@@ -102,6 +110,9 @@
 }
 .site-header.sticky-header a {
     color: #777!important;
+}
+.site-header.sticky-header a:hover {
+	border: 1px solid #5cc1a9!important;
 }
 .front-left .site-title.sticky-header {
     color: #363636!important;
