@@ -111,3 +111,52 @@ a:hover.page-numbers {
     margin: 1.5em 1em;
 }
 
+/* 
+ * SOCIAL MENU =================================================================
+ */
+.social-menu {}
+.social-menu ul {}
+.social-menu ul li {}
+.social-menu li > a { text-indent: 0; top: 0; color: #aaa; }
+.social-menu li a::before {
+    content: '\f408';
+    display: inline-block;
+    padding: 0 5px;
+    font-family: FontAwesome;
+    font-size: 16px;
+    vertical-align: top;
+    -webkit-font-smoothing: antialiased;
+}
+.social-menu li a[href*="wordpress.org"]::before,
+.social-menu li a[href*="wordpress.com"]::before    { content: '\f19a'; }
+.social-menu li a[href*="facebook.com"]::before     { content: '\f082'; }
+.social-menu li a[href*="twitter.com"]::before      { content: '\f099'; }
+.social-menu li a[href*="dribbble.com"]::before     { content: '\f17d'; }
+.social-menu li a[href*="plus.google.com"]::before  { content: '\f0d4'; }
+.social-menu li a[href*="pinterest.com"]::before    { content: '\f0d2'; }
+.social-menu li a[href*="github.com"]::before       { content: '\f09b'; }
+.social-menu li a[href*="tumblr.com"]::before       { content: '\f174'; }
+.social-menu li a[href*="youtube.com"]::before      { content: '\f167'; }
+.social-menu li a[href*="flickr.com"]::before       { content: '\f16e'; }
+.social-menu li a[href*="vimeo.com"]::before        { content: '\f194'; }
+.social-menu li a[href*="instagram.com"]::before    { content: '\f16d'; }
+.social-menu li a[href*="codepen.io"]::before       { content: '\f1cb'; }
+.social-menu li a[href*="linkedin.com"]::before     { content: '\f08c'; }
+.social-menu li a[href*="behance.com"]::before      { content: '\f1b4'; }
+.social-menu li a[href*="bitbucket.com"]::before    { content: '\f171'; }
+.social-menu li a[href*="delicious.com"]::before    { content: '\f1a5'; }
+.social-menu li a[href*="deviantart.com"]::before   { content: '\f1bd'; }
+.social-menu li a[href*="digg.com"]::before         { content: '\f1a6'; }
+.social-menu li a[href*="foursquare.com"]::before   { content: '\f180'; }
+.social-menu li a[href*="jsfiddle.com"]::before     { content: '\f1cc'; }
+.social-menu li a[href*="medium.com"]::before       { content: '\f23a'; }
+.social-menu li a[href*="reddit.com"]::before       { content: '\f1a1'; }
+.social-menu li a[href*="skype.com"]::before        { content: '\f17e'; }
+.social-menu li a[href*="slideshare.net"]::before   { content: '\f1e7'; }
+.social-menu li a[href*="soundcloud.com"]::before   { content: '\f1be'; }
+.social-menu li a[href*="stackoverflow.com"]::before{ content: '\f16c'; }
+.social-menu li a[href*="stumbleupon.com"]::before  { content: '\f1a3'; }
+.social-menu li a[href*="slack.com"]::before        { content: '\f198'; }
+.social-menu li a[href*="vine.com"]::before         { content: '\f1ca'; }
+.social-menu li a[href*="yelp.com"]::before         { content: '\f1e9'; }
+.social-menu li a[href*="mailto:"]::before          { content: '\f0e0'; }
