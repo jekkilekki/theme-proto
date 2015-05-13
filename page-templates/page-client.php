@@ -21,9 +21,9 @@ get_header(); ?>
 							</div>
 							<?php endif; ?>
 	
-							<h1 class="entry-title">
-								<a href="<?php the_permalink(); ?>" rel="bookmark"><span><?php the_title(); ?></span></a>
-							</h1>
+							<!--<h1 class="entry-title">
+								<a href="<?php //the_permalink(); ?>" rel="bookmark"><span><?php //the_title(); ?></span></a>
+							</h1>-->
 						</header><!-- .entry-header -->
 	
 						<div class="entry-content">

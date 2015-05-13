@@ -116,17 +116,18 @@ a:hover.page-numbers {
  */
 .social-menu {}
 .social-menu ul {}
-.social-menu ul li {}
-.social-menu li > a { text-indent: 0; top: 0; color: #aaa; }
+.social-menu li,
+.social-menu li > a { text-indent: 0; top: 0; color: #aaa; margin: 0 4px; height: 50px; width: 40px; }
 .social-menu li a::before {
     content: '\f408';
     display: inline-block;
-    padding: 0 5px;
+    padding: 0px;
     font-family: FontAwesome;
-    font-size: 16px;
+    font-size: 26px;
     vertical-align: top;
     -webkit-font-smoothing: antialiased;
 }
+/* Social Menu Icons */
 .social-menu li a[href*="wordpress.org"]::before,
 .social-menu li a[href*="wordpress.com"]::before    { content: '\f19a'; }
 .social-menu li a[href*="facebook.com"]::before     { content: '\f082'; }
@@ -160,3 +161,38 @@ a:hover.page-numbers {
 .social-menu li a[href*="vine.com"]::before         { content: '\f1ca'; }
 .social-menu li a[href*="yelp.com"]::before         { content: '\f1e9'; }
 .social-menu li a[href*="mailto:"]::before          { content: '\f0e0'; }
+
+/* Social Menu Hover Colors */
+.social-menu li a[href*="wordpress.org"]:hover,
+.social-menu li a[href*="wordpress.com"]:hover      { color: #21759b; }
+.social-menu li a[href*="facebook.com"]:hover       { color: #3b5998; }
+.social-menu li a[href*="twitter.com"]:hover        { color: #33ccff; }
+.social-menu li a[href*="dribbble.com"]:hover       { color: #ea4c89; }
+.social-menu li a[href*="plus.google.com"]:hover    { color: #dd4b39; }
+.social-menu li a[href*="pinterest.com"]:hover      { color: #c8232c; }
+.social-menu li a[href*="github.com"]:hover         { color: #171515; }
+.social-menu li a[href*="tumblr.com"]:hover         { color: #34526f; }
+.social-menu li a[href*="youtube.com"]:hover        { color: #c4302b; }
+.social-menu li a[href*="flickr.com"]:hover         { color: #ff0084; }
+.social-menu li a[href*="vimeo.com"]:hover          { color: #1ab7ea; }
+.social-menu li a[href*="instagram.com"]:hover      { color: #3f729b; }
+.social-menu li a[href*="codepen.io"]:hover         { color: #000; }
+.social-menu li a[href*="linkedin.com"]:hover       { color: #0e76a8; }
+.social-menu li a[href*="behance.com"]:hover        { color: #005cff; }
+.social-menu li a[href*="bitbucket.com"]:hover      { color: #003366; }
+.social-menu li a[href*="delicious.com"]:hover      { color: #205cc0; }
+.social-menu li a[href*="deviantart.com"]:hover     { color: #05cc47; }
+.social-menu li a[href*="digg.com"]:hover           { color: #000; }
+.social-menu li a[href*="foursquare.com"]:hover     { color: #2d5b3e; }
+.social-menu li a[href*="jsfiddle.com"]:hover       { color: #4679A4; }
+.social-menu li a[href*="medium.com"]:hover         { color: #000; }
+.social-menu li a[href*="reddit.com"]:hover         { color: #ff4500; }
+.social-menu li a[href*="skype.com"]:hover          { color: #00aff0; }
+.social-menu li a[href*="slideshare.net"]:hover     { color: #0077B5; }
+.social-menu li a[href*="soundcloud.com"]:hover     { color: #ff8800; }
+.social-menu li a[href*="stackoverflow.com"]:hover  { color: #fe7a15; }
+.social-menu li a[href*="stumbleupon.com"]:hover    { color: #eb4924; }
+.social-menu li a[href*="slack.com"]:hover          { color: #77D4B7; }
+.social-menu li a[href*="vine.com"]:hover           { color: #00b488; }
+.social-menu li a[href*="yelp.com"]:hover           { color: #af0606; }
+.social-menu li a[href*="mailto:"]:hover            { color: #464646; }
