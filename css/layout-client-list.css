@@ -1,0 +1,60 @@
+/**
+ * PROTO CLIENT LIST PAGE styles
+ */
+
+/*
+ * 1.0 General Page Layout
+ */
+.clients-list-main {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.clients-title {
+    margin: 0;
+    font-size: 20px;
+    width: 70%;
+    float: right;
+}
+.client-figure {
+    max-width: 200px;
+    float: left;
+    margin-right: 5%;
+    margin-top: 10px;
+    width: 25%;
+}
+.clients-list-main li {
+    padding: 4rem 0 2rem;
+    border-top: 2px solid gainsboro;
+}
+.clients-list-main li p {
+    float: right;
+    width: 70%;
+}
+.clients-list-main .more-link {
+    display: block;
+    padding: 5px 20px;
+    width: 140px;
+    border: 1px solid;
+    text-align: center;
+    margin-top: 20px;
+}
+
+@media (max-width: 480px) {
+    .clients-title {
+        font-size: 18px;
+        float: none;
+        width: 100%;
+        text-align: center;
+        margin: 2rem 0;
+    }
+    .client-figure {
+        float: none;
+        margin: 0 auto;
+        width: auto;
+    }
+    .clients-list-main li p {
+        float: none;
+        width: 100%;
+    }
+}

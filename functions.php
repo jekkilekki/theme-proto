@@ -16,8 +16,11 @@ function proto_scripts() {
         wp_enqueue_style( 'slick_theme_style', get_stylesheet_directory_uri() . '/inc/slick/slick-theme.css' );
     } 
     if (is_page_template( 'page-templates/page-client.php') ) {
-            wp_enqueue_style( 'proto_layout_style', get_stylesheet_directory_uri() . '/css/layout-client.css' );
+        wp_enqueue_style( 'proto_client_style', get_stylesheet_directory_uri() . '/css/layout-client.css' );
     } 
+    if (is_page_template( 'page-templates/page-client-list.php') ) {
+        wp_enqueue_style( 'proto_client_list_style', get_stylesheet_directory_uri() . '/css/layout-client-list.css' );
+    }
 }
 add_action( 'wp_enqueue_scripts', 'proto_scripts' );
 
