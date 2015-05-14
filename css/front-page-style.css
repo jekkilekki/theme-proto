@@ -540,7 +540,6 @@ figure.front-right {
     font-weight: normal;
     text-align: center;
     line-height: 1.2;
-    margin-top: 15px;
 }
 .client-figure {
     position: relative;
@@ -549,7 +548,10 @@ figure.front-right {
 .client-figure img {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+	left: 50%;
+    transform: translate(-50%, -50%);
+	max-height: 170px;
+	width: auto;
 }
 .desaturate {
     -webkit-filter: grayscale( 100% );
