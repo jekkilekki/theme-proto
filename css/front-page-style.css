@@ -9,7 +9,7 @@
     max-width: 100%;
 }
 .site-front .sharedaddy {
-	display: none;
+    display: none;
 }
 .indent {
     max-width: 1260px;
@@ -35,11 +35,6 @@
 .site-front,
 #content > article {
 	position: relative;
-}
-@media (max-width: 1140px) {
-	.site-front #page {
-		padding: 40px 0 0;
-	}
 }
 
 /**
@@ -71,10 +66,12 @@
 #masthead-front .nav-menu li li a {
 	color: #aaa;
 }
-#masthead-front .nav-manu li li a:hover {
-	margin-left: -20px;
-	margin-right: -20px;
-	border: 1px solid #5cc1a9!important;
+#masthead-front .nav-menu li li a:hover {
+    margin-left: -20px!important;
+    margin-right: -20px!important;
+    border: 1px solid #5cc1a9!important;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 #masthead-front .main-navigation {
     float: right;
@@ -111,8 +108,8 @@
 .site-header.sticky-header a {
     color: #777!important;
 }
-.site-header.sticky-header a:hover {
-	border: 1px solid #5cc1a9!important;
+.site-header .sticky-header a:hover {
+    border: 1px solid #5cc1a9!important;
 }
 .front-left .site-title.sticky-header {
     color: #363636!important;
@@ -347,6 +344,7 @@ figure.front-right {
     background: #e1e1e1;
 }
 #latest-projects .entry-header,
+#latest-projects .indent,
 #blog .entry-header {
     margin-bottom: 4rem;
 }
@@ -360,7 +358,7 @@ figure.front-right {
 }
 .front-page-projects article,
 .front-page-blog article {
-    height: 416px;
+    max-height: 416px;
     width: 25%;
     padding: 18px 10px;
     float: left;
@@ -398,6 +396,7 @@ figure.front-right {
     -webkit-flex-flow: row wrap;
     flex-flow: row wrap;
     justify-content: center;*/
+    border-bottom: 2px solid gainsboro;
 }
 .testimonial, .service {
     background: #fff;
@@ -505,7 +504,7 @@ figure.front-right {
     padding: 0;
     padding-top: 2rem!important;
     /*margin-top: 4rem!important;*/
-    border-top: 2px solid gainsboro;
+    max-height: 200px;
 }
 .clients-list li {
     display: inline-block;
@@ -643,10 +642,13 @@ figure.front-right {
 }
 
 /* 
- * SLICK SLIDER ================================================================
+ * 3.0 SLICK SLIDER ============================================================
  */
 #testimonials .slick-dots {
     bottom: -65px!important;
+}
+.slick-slider {
+    margin-bottom: 0!important;
 }
 .slick-prev,
 .slick-next,
@@ -676,4 +678,113 @@ figure.front-right {
 }
 .slick-dots li button:before {
     font-size: 12px!important;
+}
+
+
+/* 
+ * 4.0 RESPONSIVE WEB DESIGN ===================================================
+ */
+@media (max-width: 1599px) {
+    .site-front #page { padding: 0!important; }
+}
+@media (max-width: 1040px) {
+    .site-front #primary {
+        max-width: 100%!important;
+    }
+    .site-header .indent,
+    .site-front .indent {
+        max-width: 95%;
+    }
+    #home .entry-content {
+        width: 100%;
+    }
+    #home hgroup {
+        width: 80%;
+    }
+    #home {
+        padding-bottom: 4rem;
+    }
+    #services, 
+    #latest-projects, 
+    #testimonials, 
+    #about, 
+    #blog, 
+    #contact, 
+    #warnings {
+        padding: 2rem 0 4rem;
+    }
+    #latest-projects .entry-header,
+    #blog .entry-header,
+    #about .entry-header {
+        margin-bottom: 2rem;
+    }
+    .front-page-projects,
+    .front-page-blog {
+        margin-bottom: 0!important;
+    }
+    #blog .indent {
+        margin-bottom: 2rem!important;
+    }
+    #latest-projects .slick-dots {
+        bottom: 0;
+    }
+    .indent .home-link {
+        width: 70%!important;
+    }
+    #masthead-front .main-navigation {
+        padding: 0;
+        position: relative;
+    }
+    #masthead-front .main-navigation:before {
+        border: 1px solid #aaa;
+        color: #aaa;
+        position: absolute;
+        top: -36px;
+        right: 0;
+        padding: 2px 12px;
+        background-color: white;
+        border-radius: 2px;
+        content: "≡ Menu";
+        cursor: pointer;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    #masthead-front .main-navigation .nav-menu {
+        background: #fff;
+        border: 1px solid #e5e5e5;
+        left: -9999px;
+        position: absolute;
+        width: 300px;
+    }
+    #masthead-front .main-navigation.opened .nav-menu {
+        margin: 4px auto;
+    }
+    #masthead-front .main-navigation .nav-menu li {
+    	border-top: 1px solid #e5e5e5;
+    	text-align: center;
+    	width: 100%;
+    }
+    #masthead-front .main-navigation .nav-menu li a {
+        color: #aaa!important;
+        width: 100%;
+    }
+}
+@media (max-width: 900px) {
+    .front-page-blog article { width: 50%; }
+    #home hgroup { width: 100%; }
+    #home h1 { font-size: 40px; }
+}
+@media (max-width: 600px) {
+    #home h1 { font-size: 32px; }
+    #home h2 { font-size: 24px; }
+}
+@media (max-width: 480px) {
+    .front-page-blog article { width: 100%; }
+    #home { padding: 8rem 0 0; }
+    #home hgroup { padding: 4rem; }
+    .slick-dots li { margin: 0!important; }
+}
+@media (max-width: 400px) {
+    #home hgroup { padding: 4rem 2rem; }
 }

@@ -107,7 +107,26 @@ jQuery( document ).ready( function($) {
 //       pauseOnHover: true,
 //       pauseOnDotsHover: false,
 //       respondTo: 'window',
-//       responsive: none,
+        responsive: [
+            {
+                breakpoint: 900,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true
+                }
+            }
+        ],
 //       slide: '',
         slidesToShow: 4,
         slidesToScroll: 4,
@@ -155,6 +174,81 @@ jQuery( document ).ready( function($) {
 //       slide: '',
         slidesToShow: 2,
         slidesToScroll: 2,
+//       speed: 300,
+//       swipe: true,
+//       swipeToSlide: false,
+//       touchMove: true,
+//       touchThreshold: 5,
+//       useCSS: true,
+//       variableWidth: false,
+//       vertical: false,
+//       rtl: false,
+   });
+   
+       /* Slick Slider */
+    $('.clients-list').slick({
+       // All the defaults
+//       accessibility: true,
+//       adaptiveHeight: true,
+         //autoplay: true,
+//       autoplaySpeed: 3000,
+        arrows: false,
+//       asNavFor: null,
+//       appendArrows: $(element),
+//       prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+//       nextArrow: '<button type="button" class="slick-next">Next</button>',
+//       centerMode: false,
+//       centerPadding: '50px',
+//        cssEase: 'ease',
+//       customPaging: '',
+       dots: false,
+//       draggable: true,
+//       fade: false,
+//       focusOnSelect: false,
+//       easing: 'linear',
+//       edgeFriction: 0.15,
+        infinite: false,
+//       initialSlide: 0,
+//       lazyLoad: 'ondemand',
+//       mobileFirst: false,
+//       pauseOnHover: true,
+//       pauseOnDotsHover: false,
+//       respondTo: 'window',
+        responsive: [
+            {
+                breakpoint: 900,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false,
+                    arrows: true,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false,
+                    arrows: true,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false,
+                    arrows: true,
+                }
+            },
+        ],
+//       slide: '',
+        slidesToShow: 6,
+        slidesToScroll: 0,
 //       speed: 300,
 //       swipe: true,
 //       swipeToSlide: false,
