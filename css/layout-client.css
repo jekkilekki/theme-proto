@@ -38,6 +38,9 @@
 #primary-left .site-content.archive article {
     width: 33.33333333%;
 }
+#primary-left .sharedaddy {
+	display: none;
+}
 .page-title-pre {
     color: #aaa;
     font-size: 12px;
@@ -155,4 +158,3 @@
 @media (max-width: 400px) {
     
 }
-
