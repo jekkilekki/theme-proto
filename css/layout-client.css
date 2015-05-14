@@ -19,7 +19,7 @@
 #primary-right .entry-header,
 #primary-right .entry-content,
 #primary-right .entry-meta {
-    padding: 0 10%;
+    padding: 10% 10% 0;
 }
 #primary-right .entry-title {
     padding: 30px 0 0!important;
