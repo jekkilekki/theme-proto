@@ -14,6 +14,7 @@
 .indent {
     max-width: 1260px;
     margin: 0 auto;
+    position: relative;
 }
 .site-front {
 	background-color: #f1f1f1;
@@ -23,6 +24,12 @@
 }
 .site-front .entry-header {
     text-align: center;
+}
+.site-front .entry-header a {
+    color: #363636;
+}
+.site-front .entry-header a:hover {
+    color: #777;
 }
 .site-front .entry-content {
     padding-top: 0;
@@ -42,8 +49,12 @@
  */ 
 .indent .home-link {
     text-align: left;
-    width: 30%!important;
-    float: left;
+    width: 300px;
+    margin-left: 20px!important;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 .front-left .site-description,
 .front-left .site-title {
@@ -67,20 +78,30 @@
 	color: #aaa;
 }
 #masthead-front .nav-menu li li a:hover {
-    margin-left: -20px!important;
-    margin-right: -20px!important;
     border: 1px solid #5cc1a9!important;
-    padding-left: 20px;
-    padding-right: 20px;
+}
+#masthead-front .nav-menu li li:hover {
+    /*margin-left: -15px!important;
+    margin-right: -15px!important;
+    border: 1px solid #5cc1a9!important;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 180px;*/
 }
 #masthead-front .main-navigation {
-    float: right;
-    width: 70%;
-    clear: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 720px;
     padding: 15px 0 0 0;
+    margin-right: 20px;
 }
-#masthead-front .main-navigation ul {
-    float: right;
+#masthead-front ul.nav-menu li:hover > ul,
+#masthead-front .nav-menu ul li:hover > ul {
+    right: 0;
+}
+#masthead-front .main-navigation li a {
+    padding: 0 15px;
 }
 
 /* 
@@ -108,7 +129,7 @@
 .site-header.sticky-header a {
     color: #777!important;
 }
-.site-header .sticky-header a:hover {
+.site-header.sticky-header a:hover {
     border: 1px solid #5cc1a9!important;
 }
 .front-left .site-title.sticky-header {
@@ -344,9 +365,11 @@ figure.front-right {
     background: #e1e1e1;
 }
 #latest-projects .entry-header,
-#latest-projects .indent,
 #blog .entry-header {
     margin-bottom: 4rem;
+}
+#latest-projects .indent {
+    margin-bottom: 2rem;
 }
 #latest-projects button {
     display: block;
@@ -354,7 +377,7 @@ figure.front-right {
 }
 .front-page-projects,
 .front-page-blog {
-    margin-bottom: 6rem!important;
+    margin-bottom: 4rem!important;
 }
 .front-page-projects article,
 .front-page-blog article {
@@ -373,7 +396,7 @@ figure.front-right {
     /* background: hsl( 0, 0%, 90% ); */
 }
 #testimonials .indent {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 #testimonials figure {
     min-height: 200px;
@@ -504,19 +527,29 @@ figure.front-right {
     padding: 0;
     padding-top: 2rem!important;
     /*margin-top: 4rem!important;*/
-    max-height: 200px;
+    /*max-height: 200px;*/
+    position: relative;
 }
 .clients-list li {
     display: inline-block;
     margin: 1rem;
-    width: 14.875%;
-    vertical-align: top;
 }
 .clients-title {
     margin: 0;
-    font-size: 100%;
+    font-size: 14px;
     font-weight: normal;
     text-align: center;
+    line-height: 1.2;
+    margin-top: 15px;
+}
+.client-figure {
+    position: relative;
+    height: 200px;
+}
+.client-figure img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .desaturate {
     -webkit-filter: grayscale( 100% );
@@ -644,11 +677,11 @@ figure.front-right {
 /* 
  * 3.0 SLICK SLIDER ============================================================
  */
+#testimonials .slick-slide {
+    height: auto;
+}
 #testimonials .slick-dots {
     bottom: -65px!important;
-}
-.slick-slider {
-    margin-bottom: 0!important;
 }
 .slick-prev,
 .slick-next,
@@ -687,6 +720,14 @@ figure.front-right {
 @media (max-width: 1599px) {
     .site-front #page { padding: 0!important; }
 }
+@media (max-width: 1270px) {
+    .front-page-projects {
+        margin-bottom: 0!important;
+    }
+    #latest-projects .slick-dots {
+        bottom: 0!important;
+    }
+}
 @media (max-width: 1040px) {
     .site-front #primary {
         max-width: 100%!important;
@@ -718,7 +759,6 @@ figure.front-right {
     #about .entry-header {
         margin-bottom: 2rem;
     }
-    .front-page-projects,
     .front-page-blog {
         margin-bottom: 0!important;
     }
@@ -731,7 +771,7 @@ figure.front-right {
     .indent .home-link {
         width: 70%!important;
     }
-    #masthead-front .main-navigation {
+    /*#masthead-front .main-navigation {
         padding: 0;
         position: relative;
     }
@@ -768,7 +808,7 @@ figure.front-right {
     #masthead-front .main-navigation .nav-menu li a {
         color: #aaa!important;
         width: 100%;
-    }
+    }*/
 }
 @media (max-width: 900px) {
     .front-page-blog article { width: 50%; }

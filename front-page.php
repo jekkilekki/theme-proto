@@ -96,7 +96,7 @@ $incomplete_section_ids = array();
                         while ( $query->have_posts() ) {
                             $query->the_post();
                             $more = 0;      // Set (inside the loop) to display content above the more tag
-                            echo '<h2 class="entry-header">' . get_the_title() . '</h2>';
+                            echo '<h2 class="entry-header"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h2>';
                             echo '<div class="entry-content">';
                             the_content('');
                             echo '</div>';
@@ -176,9 +176,9 @@ $incomplete_section_ids = array();
 
                     // The Loop
                     if ( $query->have_posts() ) {
-                        echo '<section id="latest-work">';
+                        echo '<section id="latest-projects">';
                         echo '<div class="indent clear">';
-                        echo '<h2 class="entry-header">Latest Projects</h2>';
+                        echo '<h2 class="entry-header"><a href="/portfolio/">Latest Projects</a></h2>';
                         echo '<div class="front-page-projects">';
 
                         while( $query->have_posts() ) {
@@ -226,7 +226,7 @@ $incomplete_section_ids = array();
                     while ( $query->have_posts() ) {
                         $query->the_post();
                         $more = 0;      // Set (inside the loop) to display content above the more tag
-                        echo '<h2 class="entry-header">' . get_the_title() . '</h2>';
+                        echo '<h2 class="entry-header"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h2>';
                         echo '<div class="entry-content">';
                         the_content('');
                         echo '</div>';
@@ -307,7 +307,9 @@ $incomplete_section_ids = array();
                             $more = 0;
                             echo '<li class="clear">';
                             echo '<a class="clients-link" href="' . get_permalink() . '" title="See all Projects for ' . get_the_title() . '">';
-                            the_post_thumbnail( 'thumbnail', array( 'class' => 'desaturate' ) );
+                            echo '<figure class="client-figure">';
+                            the_post_thumbnail( 'medium', array( 'class' => 'desaturate' ) );
+                            echo '</figure>';
                             echo '<h3 class="clients-title">' . get_the_title() . '</h3>';
                             echo '</a>';
                             echo '</li>';
@@ -360,7 +362,7 @@ $incomplete_section_ids = array();
                         while ( $query->have_posts() ) {
                             $query->the_post();
                             $more = 0;
-                            echo '<h2 class="entry-header">' . get_the_title(). '</h2>';
+                            echo '<h2 class="entry-header"><a href="' . get_permalink() . '">' . get_the_title(). '</a></h2>';
                             echo '<figure class="front-right">';
                             the_post_thumbnail( 'large' );
                             echo '</figure>';
@@ -410,7 +412,7 @@ $incomplete_section_ids = array();
                             
                             // The Loop
                             if ( $query->have_posts() ) {
-                                echo '<h2 class="entry-header">Latest Articles</h2>';
+                                echo '<h2 class="entry-header"><a href="/blog/">Latest Articles</a></h2>';
                                 echo '<div class="front-page-blog">';
 				
                                 while( $query->have_posts() ) {
@@ -453,7 +455,7 @@ $incomplete_section_ids = array();
 ;                                
                         while ( $query->have_posts() ) {
                             $query->the_post();
-                            echo '<h2 class="entry-header">' . get_the_title() . '</h2>';
+                            echo '<h2 class="entry-header"><a href="' . get_permalink() . '">' . get_the_title() . '</h2>';
                             echo '<div class="entry-content">';
                             the_content();
                             echo '</div>';

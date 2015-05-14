@@ -33,7 +33,7 @@ jQuery( document ).ready( function($) {
                 target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
                 if (target.length) {
                     $('html,body').animate({
-                        scrollTop: target.offset().top-65
+                        scrollTop: target.offset().top-55
                     }, 1000);
                     return false;
                 } else {
@@ -67,6 +67,31 @@ jQuery( document ).ready( function($) {
               nav.find( 'a[href="#' + $(this).attr('id') + '"]').addClass( 'active' );
           }
        });
+    });
+    
+    
+    /* Modify the width at which the Front Page nav compresses */
+    var main_menu = $(".main-navigation");
+    var main_menu_container = main_menu.find('.menu-main-menu-container').first();
+    var submenu = $('#menu-main-menu');
+
+    main_menu.click(function() {
+            if($(window).outerWidth() <= 1040) {
+                    if(main_menu.hasClass("opened")) {
+                            main_menu_container.animate({
+                                    'height': 0
+                            }, 500, function() {
+                                    main_menu.removeClass("opened");
+                            });
+                    } else {
+                            main_menu.addClass("opened");
+                            var h = submenu.outerHeight();
+                            main_menu_container.css('height', '0');
+                            main_menu_container.animate({
+                                    'height': h + "px"
+                            }, 500);
+                    }
+            }
     });
     
 //    nav.find( 'a' ).on( 'click', function() {
