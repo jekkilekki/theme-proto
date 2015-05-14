@@ -121,14 +121,14 @@ $incomplete_section_ids = array();
                                 $more = 0;
                                 
                                 $icon = '';
-                                //$icon = get_post_meta( $post->ID, 'proto_fa_icon', true );
+                                $icon = get_post_meta( get_the_ID(), 'proto_fa_icon', true );
                                 
                                 
                                 echo '<li class="service clear">';
                                 echo '<div class="services-title">';
                                 echo '<a class="services-link" href="' . get_permalink() . '" title="Learn more about ' . get_the_title() . '">';
                                 if ( $icon != '' ) {
-                                    echo "<span class='fa $icon></span>";
+                                    echo "<span class='fa $icon'></span>";
                                 } else {
                                     the_post_thumbnail( 'thumb' );
                                 }
