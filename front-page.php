@@ -119,10 +119,19 @@ $incomplete_section_ids = array();
                             while ( $services_query->have_posts() ) {
                                 $services_query->the_post();
                                 $more = 0;
+                                
+                                $icon = '';
+                                //$icon = get_post_meta( $post->ID, 'proto_fa_icon', true );
+                                
+                                
                                 echo '<li class="service clear">';
                                 echo '<div class="services-title">';
                                 echo '<a class="services-link" href="' . get_permalink() . '" title="Learn more about ' . get_the_title() . '">';
-                                the_post_thumbnail( 'thumb' );
+                                if ( $icon != '' ) {
+                                    echo "<span class='fa $icon></span>";
+                                } else {
+                                    the_post_thumbnail( 'thumb' );
+                                }
                                 echo '<h3>' . get_the_title() . '</h3>';
                                 echo '</a>';
                                 echo '</div>';
@@ -455,7 +464,7 @@ $incomplete_section_ids = array();
 ;                                
                         while ( $query->have_posts() ) {
                             $query->the_post();
-                            echo '<h2 class="entry-header"><a href="' . get_permalink() . '">' . get_the_title() . '</h2>';
+                            echo '<h2 class="entry-header"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h2>';
                             echo '<div class="entry-content">';
                             the_content();
                             echo '</div>';
