@@ -18,8 +18,8 @@ function proto_scripts() {
     if (is_page_template( 'page-templates/page-client.php') ) {
         wp_enqueue_style( 'proto_client_style', get_stylesheet_directory_uri() . '/css/layout-client.css' );
     } 
-    if (is_page_template( 'page-templates/page-client-list.php') ) {
-        wp_enqueue_style( 'proto_client_list_style', get_stylesheet_directory_uri() . '/css/layout-client-list.css' );
+    if (is_page_template( 'page-templates/page-list-children.php') ) {
+        wp_enqueue_style( 'proto_list_children_style', get_stylesheet_directory_uri() . '/css/layout-list-children.css' );
     }
 }
 add_action( 'wp_enqueue_scripts', 'proto_scripts' );

@@ -1,37 +1,47 @@
 /**
- * PROTO CLIENT LIST PAGE styles
+ * PROTO LIST CHILDREN PAGE styles
  */
 
 /*
  * 1.0 General Page Layout
  */
-.clients-list-main {
+#primary {
+    margin-bottom: 40px;
+}
+.list-main .sharedaddy {
+    display: none;
+}
+.list-main {
     list-style: none;
     padding: 0;
     margin: 0;
 }
-.clients-title {
+.list-title {
     margin: 0;
     font-size: 20px;
     width: 70%;
     float: right;
 }
-.client-figure {
+.list-figure {
     max-width: 200px;
     float: left;
     margin-right: 5%;
     margin-top: 10px;
     width: 25%;
 }
-.clients-list-main li {
+.list-main li {
     padding: 4rem 0 2rem;
     border-top: 2px solid gainsboro;
 }
-.clients-list-main li p {
+.list-main li li {
+    padding: 0;
+    border: none;
+}
+.list-excerpt {
     float: right;
     width: 70%;
 }
-.clients-list-main .more-link {
+.list-main .more-link {
     display: block;
     padding: 5px 20px;
     width: 140px;
@@ -41,19 +51,19 @@
 }
 
 @media (max-width: 480px) {
-    .clients-title {
+    .list-title {
         font-size: 18px;
         float: none;
         width: 100%;
         text-align: center;
         margin: 2rem 0;
     }
-    .client-figure {
+    .list-figure {
         float: none;
         margin: 0 auto;
         width: auto;
     }
-    .clients-list-main li p {
+    .list-excerpt {
         float: none;
         width: 100%;
     }
