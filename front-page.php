@@ -124,7 +124,7 @@ $incomplete_section_ids = array();
                                 $icon = get_post_meta( get_the_ID(), 'proto_fa_icon', true );
                                 
                                 
-                                echo '<li class="service clear">';
+                                echo '<li class="service equally clear">';
                                 echo '<div class="services-title">';
                                 echo '<a class="services-link" href="' . get_permalink() . '" title="Learn more about ' . get_the_title() . '">';
                                 if ( $icon != '' ) {
@@ -259,7 +259,7 @@ $incomplete_section_ids = array();
                         while ( $query->have_posts() ) {
                             $query->the_post();
                             $more = 0;
-                            echo '<div class="testimonial clear">';
+                            echo '<div class="testimonial equally clear">';
                             echo '<figure class="testimonial-thumb <!--losange-->">';
                             //echo '<div class="los1">';
                             the_post_thumbnail( 'thumbnail' );
