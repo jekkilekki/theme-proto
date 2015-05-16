@@ -21,6 +21,9 @@ function proto_scripts() {
     if (is_page_template( 'page-templates/page-list-children.php') ) {
         wp_enqueue_style( 'proto_list_children_style', get_stylesheet_directory_uri() . '/css/layout-list-children.css' );
     }
+    
+    // Font Awesome 4.3.0
+    wp_enqueue_style('proto-font-awesome', get_stylesheet_directory_uri() . '/css/font.awesome.css', false, '4.3.0');
 }
 add_action( 'wp_enqueue_scripts', 'proto_scripts' );
 

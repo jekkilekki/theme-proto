@@ -266,7 +266,7 @@ figure.front-right {
     text-decoration: none;
 }*/
 .services-list {
-    margin: 4rem -4rem 0 -2rem;
+    margin: 0;
     padding: 0;
     list-style: none;
 }
@@ -339,28 +339,18 @@ figure.front-right {
   height: auto;
 }
 
-/* 
- * 2.2.1 SERVICES RESPONSIVE ---------------------------------------------------
- */
-@media screen and ( min-width: 450px ) {
-    .services-title {
-        margin-top: 1em;
-        margin-bottom: 0;
-        margin-right: 10%;
-        width: 30%;
-        float: left;
-    }
-    .services-lede {
-        width: 60%;
-        float: left;
-    }
+.services-title {
+    margin-top: 1em;
+    margin-bottom: 0;
+    margin-right: 10%;
+    width: 30%;
+    float: left;
 }
-@media screen and ( min-width: 950px ) {
-    /*.services-list {
-        -webkit-column-count: 3;
-                column-count: 3;
-    }*/
+.services-lede {
+    width: 60%;
+    float: left;
 }
+
 
 /* 
  * 2.3 LATEST PROJECTS =========================================================
@@ -439,7 +429,9 @@ figure.front-right {
     -ms-transition: all .5s ease-out;
     transition: all .5s ease-out;
     padding: 2rem;
-    margin: 18px 10px;
+    margin: 0 1%;
+    margin-top: 10px;
+    margin-bottom: 10px;
     /*height: 275px;      /* @TODO: Fix the height of testimonials and services */
 }
 .testimonials li {
@@ -735,6 +727,11 @@ figure.front-right {
         bottom: 0!important;
     }
 }
+@media (max-width: 1200px) {
+    .service {
+        width: 48%;
+    }
+}
 @media (max-width: 1040px) {
     .site-front #primary {
         max-width: 100%!important;
@@ -821,6 +818,17 @@ figure.front-right {
     .front-page-blog article { width: 50%; }
     #home hgroup { width: 100%; }
     #home h1 { font-size: 40px; }
+    .entry-header,
+    .entry-content,
+    .entry-summary,
+    .entry-meta {
+        padding: 0!important;
+    }
+}
+@media (max-width: 710px) {
+    .service, .testimonial {
+        width: 100%;
+    }
 }
 @media (max-width: 600px) {
     #home h1 { font-size: 32px; }

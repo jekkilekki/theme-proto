@@ -109,7 +109,8 @@ $incomplete_section_ids = array();
                          */
                         $args = array(
                             'post_type'     => 'page',
-                            'post_parent'   => $services_id
+                            'post_parent'   => $services_id,
+                            'posts_per_page'=> 6,
                         );
                         $services_query = new WP_Query( $args );
 
