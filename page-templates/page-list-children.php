@@ -50,10 +50,18 @@ get_header(); ?>
                            while ( $query->have_posts() ) {
                                $query->the_post();
                                $more = 0;
+                               
+                               $icon = '';
+                               $icon = get_post_meta( get_the_ID(), 'proto_fa_icon', true );
+                               
                                echo '<li class="clear">';
                                echo '<a class="list-link" href="' . get_permalink() . '" title="See more info about ' . get_the_title() . '">';
                                echo '<figure class="list-figure">';
-                               the_post_thumbnail( 'medium' );
+                               if ( $icon != '' ) {
+                                    echo "<span class='fa $icon'></span>";
+                                } else {
+                                    the_post_thumbnail( 'medium' );
+                                }
                                echo '</figure>';
                                echo '<h3 class="list-title">' . get_the_title() . '</h3>';
                                echo '</a>';

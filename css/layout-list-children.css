@@ -6,7 +6,7 @@
  * 1.0 General Page Layout
  */
 #primary {
-    margin-bottom: 40px;
+    margin-bottom: 40px!important;
 }
 .list-main .sharedaddy {
     display: none;
