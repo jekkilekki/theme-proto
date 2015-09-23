@@ -39,7 +39,7 @@ $post_helper_css_classes .= ( is_sticky() && is_front_page() ? ' sticky' : '' );
 	<div class="article-helper notloaded<?php echo $post_helper_css_classes; ?>">
 		<?php if (is_front_page() || is_home() || is_search() || is_archive() || is_tag() || is_page_template('page-templates/page-client.php')) : // Only display Excerpts for Search ?>
 			<?php if(get_theme_mod('portfolio_show_excerpts', '1') == '1') : ?>
-			<div class="post-preview transition">
+			<div class="post-preview transition animation <?php echo $post_preview_animation; ?>">
 				<?php get_template_part('content', 'header'); ?>
 			
 				
